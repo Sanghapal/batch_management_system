@@ -13,6 +13,18 @@
 
 ActiveRecord::Schema.define(:version => 20130320101844) do
 
+  create_table "batches", :force => true do |t|
+    t.string   "title"
+    t.integer  "grade_id"
+    t.date     "starte_date"
+    t.date     "end_date"
+    t.text     "deys_of_week"
+    t.time     "from_time"
+    t.time     "end_time"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "cities", :force => true do |t|
     t.string   "name"
     t.integer  "state_id"
@@ -21,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20130320101844) do
   end
 
   add_index "cities", ["state_id"], :name => "index_cities_on_state_id"
+
+  create_table "grades", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "states", :force => true do |t|
     t.string   "name"
