@@ -1,0 +1,13 @@
+= simple_form_for(@batch) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.collection_select :grade_id, Grade.all, :id, :title, :prompt => "Select Grade"
+    = f.input :starte_date
+    = f.input :end_date
+    =f.input :from_time, :as => :text, :rows => 1
+    =f.input :end_time, :as => :text, :rows => 1
+    =f.input :deys_of_week, collection: ['Monday, Wednesday, Friday.', 'Tuesday, Thursday, Saturday.'], as: :radio_buttons
+  .form-actions
+    = f.button :submit
