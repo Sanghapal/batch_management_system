@@ -15,6 +15,24 @@ root :to => 'home#index'
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  resources :states do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
+  resources :cities do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
+  resources :students do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

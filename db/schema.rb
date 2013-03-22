@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320101844) do
+ActiveRecord::Schema.define(:version => 20130321144339) do
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(:version => 20130320101844) do
 
   add_index "cities", ["state_id"], :name => "index_cities_on_state_id"
 
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "grades", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -45,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130320101844) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "country_id"
   end
 
   create_table "students", :force => true do |t|
@@ -64,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20130320101844) do
     t.boolean  "sponsor"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "country_id"
   end
 
   add_index "students", ["city_id"], :name => "index_students_on_city_id"

@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Cities
+
+= form_tag destroy_multiple_cities_path, method: :delete do
+  %table
+    %tr
+      %th Select city
+      %th Name
+      %th
+
+    - @cities.each do |city|
+      %tr
+        %td= check_box_tag "cities[]", city.id
+        %td= city.name
+        %td= link_to 'Edit', edit_city_path(city)
+  = submit_tag "Delete selected"
+
+%br
+
+= link_to 'New City', new_city_path
