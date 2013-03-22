@@ -1,0 +1,47 @@
+%h1 Student details
+
+%h2 Personal information
+%table
+  %tr
+    %th Full name
+    %th Middle name
+    %th Mobile number
+    - if @student.alternate_mobile != nil && @student.alternate_mobile != ""
+      %th Alternate mobile
+    %th Email
+  %tr
+    %td= @student.first_name + " " + @student.last_name
+    %td= @student.middle_name
+    %td= @student.mobile
+    - if @student.alternate_mobile != nil && @student.alternate_mobile != ""
+      %td= @student.alternate_mobile
+    %td= @student.email
+
+%h2 Address information
+%table
+  %tr
+    %th Address line1
+    %th Address line2
+    %th Location
+    %th Country
+    %th Pin code
+  %tr
+    %td= @student.address_line1
+    %td= @student.address_line2
+    %td= @student.city.name + " " + @student.state.name
+    %td= @student.country.name
+    %td= @student.zip_code
+
+%h2 Other information
+%table
+  %tr
+    %th Enrollment date
+    %th Qualifies with
+    %th Sponsor
+  %tr
+    %td= @student.enrollment_date
+    %td= @student.qualifies_with
+    - if @student.sponsor 
+      %td Yes
+    - else
+      %td No

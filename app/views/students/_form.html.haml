@@ -15,7 +15,7 @@
     = f.association :city, :collection => City.all.entries, :prompt => "Select city"
     = f.input :zip_code
     = f.input :qualifies_with, collection:['Previous grade clearance', 'Entrance test clearance'], as: :radio_buttons
-    = f.input :enrollment_date
+    = f.input :enrollment_date, :as => :datepicker, :readonly => true
     = f.input :sponsor, :as => :boolean
 
   .form-actions
