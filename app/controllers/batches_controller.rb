@@ -44,7 +44,7 @@ class BatchesController < ApplicationController
 
     respond_to do |format|
       if @batch.save
-        format.html { redirect_to batches_path, notice: 'Batch was successfully created.' }
+        format.html { redirect_to @batch, notice: 'Batch was successfully created.' }
         format.json { render json: @batch, status: :created, location: @batch }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class BatchesController < ApplicationController
 
     respond_to do |format|
       if @batch.update_attributes(params[:batch])
-        format.html { redirect_to batches_path, notice: 'Batch was successfully updated.' }
+        format.html { redirect_to @batch, notice: 'Batch was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

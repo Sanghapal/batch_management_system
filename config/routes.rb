@@ -1,6 +1,6 @@
 BatchManagementSystem::Application.routes.draw do
   resources :grades
-    resources :batches
+   resources :batches
   # The priority is based upon order of creation:
   # first created -> highest priority.
 root :to => 'home#index'
