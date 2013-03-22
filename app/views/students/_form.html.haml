@@ -1,0 +1,22 @@
+= simple_form_for(@student) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :first_name
+    = f.input :middle_name
+    = f.input :last_name 
+    = f.input :email
+    = f.input :mobile
+    = f.input :alternate_mobile
+    = f.input :address_line1
+    = f.input :address_line2
+    = f.association :country, :collection => Country.all.entries, :prompt => "Select country" 
+    = f.association :state, :collection => State.all.entries, :prompt => "Select state" 
+    = f.association :city, :collection => City.all.entries, :prompt => "Select city"
+    = f.input :zip_code
+    = f.input :qualifies_with, collection:['Previous grade clearance', 'Entrance test clearance'], as: :radio_buttons
+    = f.input :enrollment_date
+    = f.input :sponsor, :as => :boolean
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 States
+
+= form_tag destroy_multiple_states_path, method: :delete do
+  %table
+    %tr
+      %th Select state
+      %th Name
+      %th
+
+    - @states.each do |state|
+      %tr
+        %td= check_box_tag "states[]", state.id
+        %td= state.name
+        %td= link_to 'Edit', edit_state_path(state)
+  = submit_tag "Delete selected"
+
+%br
+
+= link_to 'New State', new_state_path
