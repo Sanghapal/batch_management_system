@@ -2,8 +2,15 @@ class Student < ActiveRecord::Base
   belongs_to :country
   belongs_to :state
   belongs_to :city
+
   attr_accessible :address_line1, :address_line2, :alternate_mobile, :email, :enrollment_date, :first_name, :last_name, :middle_name, :mobile, :qualifies_with, :sponsor, :zip_code, :state_id, :city_id, :country_id, :photo
   has_attached_file :photo
+
+  has_many :student_grades
+  has_many :grades, :through => :student_grades
+  has_many :student_batches
+  has_many :batches, :through => :student_batches
+  
 
   validates :first_name, :last_name, :address_line1, :mobile, :enrollment_date, :qualifies_with, :zip_code,	:state_id, :city_id, :presence => true
   validates :first_name,  :last_name, :format => {:with => /\A[a-zA-z]+\z/, :message => "Only letters allowed."}
