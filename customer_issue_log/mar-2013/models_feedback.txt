@@ -1,0 +1,25 @@
+country.rb
+  has_one :student#has_many
+  #no validations?
+
+
+State:
+  attr_accessible :name, :country_id#Why do we have _id fields? Doesn't association take care of _id fields?
+  has_one :student#has_many
+
+
+City
+  attr_accessible :name, :state_id#Why do we have _id fields? Doesn't association take care of _id fields?
+  has_one :student#has_many
+
+
+Student
+  belongs_to :country#through
+  belongs_to :state#through
+  attr_accessible :state_id, :city_id, :country_id, #Why do we have _id fields? Doesn't association take care of _id fields?
+  attr_accessible :state_id, :country_id, #Replace :state_id and :country_id with :through unless performence benefit of not joining tables.
+  has_many :student_batches#no need as discussed on saturday.
+  has_many :batches, :through => :student_batches#through student_grades
+  validates :mobile, :alternate_mobile, :format => { with: /(^\s*$|^\s*[789]\d{9}\s*$)/, :message => "Please provide 10 digit mobile number." }#Why allow spaces (\s). Unnecessary byte usage in db.
+
+
