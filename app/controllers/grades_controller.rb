@@ -67,3 +67,12 @@ class GradesController < ApplicationController
     end
   end
 end
+
+  def multidelete
+        @grade = Grade.find(params[:id])
+
+    if @grade.params[:grade] != nil
+        Grade.destroy(params[:id])
+      redirect_to grades_path
+    end
+      end

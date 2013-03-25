@@ -1,6 +1,11 @@
 BatchManagementSystem::Application.routes.draw do
-  resources :grades
+   resources :grades
+
+
+
    resources :batches
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 root :to => 'home#index'
@@ -28,10 +33,18 @@ root :to => 'home#index'
   end
 
   resources :students do
+
     collection do
-      delete 'destroy_multiple'
+      delete 'destroy_multiple' 
+
+
     end
+
   end
+  match'/addgrade' => 'students#addgrade', :via => :get
+
+  match'/students/:id/assigngrade' => 'students#assigngrade', :via => [:get, :post], as: :assigngrade
+ 
 
   # Sample resource route with options:
   #   resources :products do

@@ -1,9 +1,7 @@
 class Batch < ActiveRecord::Base
   attr_accessible :title, :grade_id, :starte_date, :end_date, :deys_of_week, :from_time, :end_time
   belongs_to :grade
-  has_many :students_batches
-  has_many :students, :through => :student_batches
-
+  belongs_to :student_grade
   validates :title, :grade, :starte_date, :end_date, :deys_of_week, :from_time, :end_time, :presence => true 
   validate :checkdate
   validate :mytime

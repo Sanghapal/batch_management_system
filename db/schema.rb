@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130322105427) do
+ActiveRecord::Schema.define(:version => 20130325055202) do
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -54,21 +54,12 @@ ActiveRecord::Schema.define(:version => 20130322105427) do
     t.integer  "country_id"
   end
 
-  create_table "student_batches", :force => true do |t|
-    t.integer  "Student_id"
-    t.integer  "Batch_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "student_batches", ["Batch_id"], :name => "index_student_batches_on_Batch_id"
-  add_index "student_batches", ["Student_id"], :name => "index_student_batches_on_Student_id"
-
   create_table "student_grades", :force => true do |t|
     t.integer  "Student_id"
     t.integer  "Grade_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.date     "addmition_date"
   end
 
   add_index "student_grades", ["Grade_id"], :name => "index_student_grades_on_Grade_id"

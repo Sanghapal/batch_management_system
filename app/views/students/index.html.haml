@@ -1,0 +1,18 @@
+%h1 Showing all student
+%table
+  %tr
+    %th first name
+    %th
+    %th
+    %th
+
+  - @students.each do |student|
+    %tr
+      %td= student.first_name
+      %td= link_to 'Show', student
+      %td= link_to 'Edit', edit_student_path(student)
+%br
+
+= link_to 'New Grade', new_grade_path
+%br
+= link_to 'Assign Grade', addgrade_path
