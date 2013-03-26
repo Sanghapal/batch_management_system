@@ -1,0 +1,8 @@
+= simple_form_for(@student_grade) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.collection_select :Student_id, Student.all, :id, :first_name, :prompt => "Select Student"
+    = f.collection_select :Grade_id, Grade.all, :id, :title, :prompt => "Select Grade"
+
+    .form-actions
+    = f.button :submit

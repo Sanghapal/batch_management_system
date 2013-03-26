@@ -1,4 +1,4 @@
-= simple_form_for(@student) do |f|
+= simple_form_for @student, :html => { :multipart => true} do |f|
   = f.error_notification
 
   .form-inputs
@@ -17,6 +17,7 @@
     = f.input :qualifies_with, collection:['Previous grade clearance', 'Entrance test clearance'], as: :radio_buttons
     = f.input :enrollment_date, :as => :datepicker, :readonly => true
     = f.input :sponsor, :as => :boolean
+    = f.file_field :photo
 
   .form-actions
     = f.button :submit

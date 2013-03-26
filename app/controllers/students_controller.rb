@@ -52,21 +52,10 @@ class StudentsController < ApplicationController
     end
   end
 end
-
   def addgrade
-    @student.student_grade.new
-end
-  def assigngrade
-    @student = Student.find(params[:id])
-	    @grade = Grade.all
-
-	        if request.post?
-
-		      @student.Student_grade.build
-    @student.student_grade = params[:Student_id]
-    @student.student_grade = params[:Grade_id]
-p @student.student_grade		            
-    @student.student_grade.save
-redirect_to students_path
+    @student = GradesStudents.new(params[:student_id, :grade_id])
+    if @student.save
+    redirect_to students_path
+ end
 			 end
-			 end
+		

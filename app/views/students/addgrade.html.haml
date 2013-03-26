@@ -1,5 +1,7 @@
-= simple_form_for @studentpost do |f|
+= simple_form_for GradesStudents.new, url: addgrade_path, method: :post do |f|
+
+  = f.error_notification
   = f.collection_select :grade_id, Grade.all, :id, :title, :prompt => "Select Grade"
 
   = f.collection_select :student_id, Student.all, :id, :first_name, :prompt => "Select Student"
-  =f.submit
+  = f.submit

@@ -14,6 +14,17 @@ GIT
       execjs
       railties (>= 3.1)
 
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: f28d75b81818386407f1ebd505058e0236920fd9
+  specs:
+    paperclip (3.4.1)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,6 +63,10 @@ GEM
     bson_ext (1.8.3)
       bson (~> 1.8.3)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -157,6 +172,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   mysql2
+  paperclip!
   rails (= 3.2.11)
   rspec-rails (>= 2.0.1)
   sass-rails (~> 3.2.3)
