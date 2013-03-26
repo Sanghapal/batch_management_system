@@ -30,8 +30,12 @@ root :to => 'home#index'
   resources :students do
     collection do
       delete 'destroy_multiple'
+       put 'ban_multiple'
     end
   end
+  
+  match'/student/:state_id/city' => 'students#city', :via => :get, as: :city
+
 
   # Sample resource route with options:
   #   resources :products do

@@ -42,13 +42,26 @@ class StudentsController < ApplicationController
     end
   end
 
-  def destroy
-    @student = Student.find(params[:id])
-    @student.destroy
-
+  def destroy_multiple
     respond_to do |format|
-      format.html { redirect_to students_url }
-      format.json { head :no_content }
+      if params[:students] != nil
+        Student.destroy(params[:students])
+        format.html { redirect_to students_url }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to students_url }
+        format.json { head :no_content }
+      end
     end
+  end
+
+  def city
+    @state = State.find(params[:state_id])    
+    @cities = @state.cities
+  end
+
+  def state
+    @country = Country.find(params[:country_id])
+    @states = @country.states
   end
 end
