@@ -1,18 +1,21 @@
-%h1 Showing all student
-%table
-  %tr
-    %th first name
-    %th
-    %th
-    %th
 
-  - @students.each do |student|
+%h1 Students list
+= form_tag destroy_multiple_students_path,  method: :delete do
+  %table
     %tr
-      %td= student.first_name
-      %td= link_to 'Show', student
-      %td= link_to 'Edit', edit_student_path(student)
+      %th Select students
+      %th Full name
+      %th
+
+    - @students.each do |student|
+      %tr
+        %td= check_box_tag "students[]", student.id
+        %td= student.first_name + " " + student.last_name
+        %td= link_to 'Edit', edit_student_path(student)
+  = submit_tag "Delete selected"
+
 %br
 
-= link_to 'New Grade', new_grade_path
+= link_to 'New Student', new_student_path
 %br
-= link_to 'Assign Grade', addgrade_student_path
+= link_to 'Assign Grade', addgrade_path

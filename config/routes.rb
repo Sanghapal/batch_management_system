@@ -26,7 +26,6 @@ root :to => 'home#index'
       delete 'destroy_multiple'
     end
   end
-  #match'/addgrade' => 'students#addgrade', :via => :get
 
   match'/students/addgrade' => 'students#addgrade', :via => [:get, :post], as: :addgrade
 
@@ -36,10 +35,15 @@ root :to => 'home#index'
       delete 'destroy_multiple' 
 
 
+      delete 'destroy_multiple'
+       put 'ban_multiple'
     end
 
   end
  
+  
+  match'/student/:state_id/city' => 'students#city', :via => :get, as: :city
+
 
   # Sample resource route with options:
   #   resources :products do

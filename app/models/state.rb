@@ -1,7 +1,7 @@
 class State < ActiveRecord::Base
   attr_accessible :name, :country_id
   has_many :cities
-  has_one :student
+  has_many :students
   belongs_to :country
 
   validates :name, :country_id, :presence => true
