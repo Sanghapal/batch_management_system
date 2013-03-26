@@ -2,4 +2,4 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :city, :collection => City.where(:state_id => @state.id).entries, :prompt => "Select city", :id => 'combocity'
+    = f.association :city, :collection => @state.cities.entries, :prompt => "Select city", :id => 'combocity'
