@@ -1,7 +1,13 @@
-= simple_form_for GradesStudents.new, url: addgrade_path, method: :post do |f|
+
+= render 'header'
+%h1 Assign grade
+= simple_form_for GradesStudents.new, :url => addgrade_path, method: :post do |f|
 
   = f.error_notification
-  = f.collection_select :grade_id, Grade.all, :id, :title, :prompt => "Select Grade"
+  = f.input :student_id, :collection => Student.all.entries, :label_method => :first_name, :value_method => :id, :prompt => "Select student"
+  = f.input :grade_id, :collection => Grade.all.entries, :label_method => :title, :value_method => :id, :prompt => "Select grade"
 
-  = f.collection_select :student_id, Student.all, :id, :first_name, :prompt => "Select Student"
+
   = f.submit
+%br
+= link_to 'Cancel', students_path

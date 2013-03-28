@@ -57,17 +57,17 @@ class GradesController < ApplicationController
     end
   end
 
-  def destroy
-    @grade = Grade.find(params[:id])
-    @grade.destroy
+  def multipledelete
 
     respond_to do |format|
+    if params[:grades] != nil
+      Grade.destroy(params[:grades])
       format.html { redirect_to grades_url }
       format.json { head :no_content }
     end
   end
 end
-
+end
   def multidelete
         @grade = Grade.find(params[:id])
 

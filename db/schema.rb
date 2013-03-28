@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20130328073229) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "batches_students", :force => true do |t|
+    t.integer  "batch_id"
+    t.integer  "student_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "batches_students", ["batch_id"], :name => "index_batches_students_on_batch_id"
+  add_index "batches_students", ["student_id"], :name => "index_batches_students_on_student_id"
+
   create_table "cities", :force => true do |t|
     t.string   "name"
     t.integer  "state_id"
@@ -50,8 +60,9 @@ ActiveRecord::Schema.define(:version => 20130328073229) do
   create_table "grades_students", :force => true do |t|
     t.integer  "grade_id"
     t.integer  "student_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.date     "admission_date"
   end
 
   add_index "grades_students", ["grade_id"], :name => "index_grades_students_on_grade_id"

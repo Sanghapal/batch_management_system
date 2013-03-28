@@ -1,23 +1,21 @@
+
+= render 'header'
 %h1 Showing all  grades
+= form_tag multipledelete_grades_path, method: :delete do
 
-%table
-  %tr
-    %th Title
-    %th Discription
-    %th
-    %th
-    %th
-
+  %table
+    %tr
+      %th Title
+      %th Discription
+      %th
+      %th
+      %th
   - @grades.each do |grade|
     %tr
-      %td= grade.title
-      %td= grade.description
-      %td= link_to 'Show', grade
-      %td= link_to 'Edit', edit_grade_path(grade)
-      %td= link_to 'Destroy', grade, :method => :delete, :data => { :confirm => 'Are you sure?' }
       %td= check_box_tag "grades[]", grade.id
       %td= grade.title
-      %td= submit_tag "Delete grades"
+      %td= link_to 'Edit', edit_grade_path(grade)
+  = submit_tag "Delete selected grades"
 %br
 
 = link_to 'New Grade', new_grade_path

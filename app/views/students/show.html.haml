@@ -1,3 +1,5 @@
+
+= render 'header'
 %h1 Student details
 %br
 = image_tag @student.photo.url
@@ -13,7 +15,7 @@
       %th Alternate mobile
     %th Email
   %tr
-    %td= @student.first_name + " " + @student.last_name
+    %td= @student.first_name  +  " "  +  @student.last_name
     %td= @student.middle_name
     %td= @student.mobile
     - if @student.alternate_mobile != nil && @student.alternate_mobile != ""
@@ -48,3 +50,5 @@
       %td Yes
     - else
       %td No
+%br
+= link_to 'Back', students_path
