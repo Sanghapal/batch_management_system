@@ -11,7 +11,7 @@
     = f.input :address_line1
     = f.input :address_line2
     = f.association :country, :collection => Country.all.entries, :prompt => "Select country" 
-    = f.association :state, :collection => State.all.entries, :prompt => "Select state" 
+    = f.association :state, :collection => State.all.entries, :prompt => "Select state", :remote => true
     %div{:id => "combcity"}
 
     = f.input :zip_code
