@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326061340) do
+ActiveRecord::Schema.define(:version => 20130327120302) do
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20130326061340) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.boolean  "ban"
   end
 
   add_index "students", ["city_id"], :name => "index_students_on_city_id"

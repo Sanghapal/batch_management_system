@@ -27,7 +27,7 @@ root :to => 'home#index'
     end
   end
 
-  match'/students/addgrade' => 'students#addgrade', :via => [:get, :post], as: :addgrade
+  match'/students/:student_id/banmultiple' => 'students#banmultiple', :via => [:get, :put], as: :banmultiple
 
   resources :students do
 
@@ -35,8 +35,9 @@ root :to => 'home#index'
       delete 'destroy_multiple' 
 
 
-      delete 'destroy_multiple'
-       put 'ban_multiple'
+      
+
+       #put 'banmultiple'
     end
 
   end

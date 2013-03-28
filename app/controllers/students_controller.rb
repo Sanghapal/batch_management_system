@@ -72,9 +72,13 @@ end
  end
 			 end
 		
-  def ban_multiple
-    @student = Student.find(params[:id])
-if @student.update_attributes(params[:student])
-      redirect_to students_path
-      end
-      end
+  def banmultiple
+    @students = Student.find(params[:students])
+    if request.put?
+      @student.each do |student|
+    student.ban = true    
+      student.update_attributes(params[:student])
+          end
+	      end
+	      redirect_to students_path
+	      end
