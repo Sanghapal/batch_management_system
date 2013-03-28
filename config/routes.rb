@@ -27,17 +27,14 @@ root :to => 'home#index'
     end
   end
 
-  match'/students/:student_id/banmultiple' => 'students#banmultiple', :via => [:get, :put], as: :banmultiple
+  #match'/students/:student_id/banmultiple' => 'students#banmultiple', :via => [:get, :put], as: :banmultiple
 
   resources :students do
 
     collection do
-      delete 'destroy_multiple' 
+      delete 'destroy_multiple'      
 
-
-      
-
-       #put 'banmultiple'
+       put 'banmultiple'
     end
 
   end
