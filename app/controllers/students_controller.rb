@@ -64,11 +64,36 @@ class StudentsController < ApplicationController
     @country = Country.find(params[:country_id])
     @states = @country.states
   end
-end
-  def addgrade
-    @student = GradesStudents.new(params[:student_id, :grade_id])
-    if @student.save
-    redirect_to students_path
+
+def addgrade  
+  if request.post?
+    @student = GradesStudents.new(params[:grades_students])
+    @student.admission_date = Date.today
+    respond_to do |format|
+      if @student.save
+        format.html { redirect_to students_path, notice: 'assign grade successfully..' }
+        format.json { render json: students_path, status: :created, location: @student }
+      else
+        format.html { render action: "addgrade" }
+        format.json { render json: @student.errors, status: :unprocessable_entity }
+      end
+    end
+  end
  end
-			 end
+
+  def assign_batch
+    if request.post?
+      @student = BatchesStudents.new(params[:batches_students])
+      respond_to do |format|
+        if @student.save
+          format.html { redirect_to students_path, notice: 'assign batch successfully..' }
+          format.json { render json: students_path, status: :created, location: @student }
+        else
+          format.html { render action: "assign_batch" }
+          format.json { render json: @student.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+  end
+end
 		

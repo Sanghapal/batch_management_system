@@ -13,7 +13,7 @@
       %th Alternate mobile
     %th Email
   %tr
-    %td= @student.first_name + " " + @student.last_name
+    %td= @student.first_name  +  " "  +  @student.last_name
     %td= @student.middle_name
     %td= @student.mobile
     - if @student.alternate_mobile != nil && @student.alternate_mobile != ""

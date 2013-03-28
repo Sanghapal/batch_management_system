@@ -27,22 +27,17 @@ root :to => 'home#index'
     end
   end
 
-  match'/students/addgrade' => 'students#addgrade', :via => [:get, :post], as: :addgrade
-
   resources :students do
-
     collection do
-      delete 'destroy_multiple' 
-
-
       delete 'destroy_multiple'
        put 'ban_multiple'
     end
-
   end
  
-  
+  match'/assign_batch' => 'students#assign_batch', :via => [:get, :post], as: :assign_batch
+  match'/addgrade' => 'students#addgrade', :via => [:get, :post], as: :addgrade
   match'/student/:state_id/city' => 'students#city', :via => :get, as: :city
+
 
 
   # Sample resource route with options:

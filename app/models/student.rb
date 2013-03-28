@@ -2,10 +2,12 @@ class Student < ActiveRecord::Base
   belongs_to :country
   belongs_to :state
   belongs_to :city
+  has_and_belongs_to_many :grades
+  has_and_belongs_to_many :batches
 
   attr_accessible :address_line1, :address_line2, :alternate_mobile, :email, :enrollment_date, :first_name, :last_name, :middle_name, :mobile, :qualifies_with, :sponsor, :zip_code, :state_id, :city_id, :country_id, :photo
   has_attached_file :photo
-    has_and_belongs_to_many :grades
+
   
 
   validates :first_name, :last_name, :address_line1, :mobile, :enrollment_date, :qualifies_with, :zip_code,	:state_id, :city_id, :presence => true
