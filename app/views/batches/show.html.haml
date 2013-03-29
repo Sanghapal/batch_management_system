@@ -1,6 +1,23 @@
 
 = render 'header'
-%p#notice= notice
-
+%h1 Batch Details
+%table
+  %tr
+    %th Batch Title
+    %th Grade Title
+    %th Start Date
+    %th End Date
+    %th From Time
+    %th End Time
+    %th Days of week
+    %tr
+      %td= @batch.title
+      %td= @batch.grade.title
+      %td= @batch.starte_date
+      %td= @batch.end_date
+      %td= @batch.from_time.strftime('%H:%M')
+      %td= @batch.end_time.strftime('%H:%M')
+      %td= @batch.deys_of_week
+%br
 
 = link_to 'Back', batches_path
