@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+#    @student.grades.build
   end
 
   def edit

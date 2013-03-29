@@ -1,4 +1,4 @@
-$(document).ready ->
-  $("#student_state_id").bind 'change', (e) ->
+#$(document).ready ->
+#  $("#student_state_id").bind 'change', (e) ->
 #    alert $(this).val()
-    $.get('/student/' + $(this).val() + '/city')
+#    $.get('/student/' + $(this).val() + '/city')
