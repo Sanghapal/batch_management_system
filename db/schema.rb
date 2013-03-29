@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130328073229) do
+ActiveRecord::Schema.define(:version => 20130329075438) do
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(:version => 20130328073229) do
   add_index "cities", ["state_id"], :name => "index_cities_on_state_id"
 
   create_table "countries", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
