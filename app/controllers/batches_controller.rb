@@ -57,13 +57,14 @@ class BatchesController < ApplicationController
     end
   end
 
-  def destroy
-    @batch = Batch.find(params[:id])
-    @batch.destroy
-
+  def multipledelete
     respond_to do |format|
+
+          if params[:batches] != nil
+Batch.destroy(params[:batches])
       format.html { redirect_to batches_url }
       format.json { head :no_content }
     end
   end
+end
 end

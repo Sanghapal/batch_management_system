@@ -1,9 +1,9 @@
 BatchManagementSystem::Application.routes.draw do
-   resources :grades
-   resources :batches
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
-root :to => 'home#index'
+root :to => 'students#index'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -14,7 +14,18 @@ root :to => 'home#index'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+   resources :grades do
+    collection do
+      delete 'multipledelete'
+    end
+   end
 
+   resources :batches do
+    collection do
+
+     delete 'multipledelete'
+    end
+   end
   resources :states do
     collection do
       delete 'destroy_multiple'

@@ -1,3 +1,5 @@
+
+= render 'header'
 %h1 Student details
 %br
 = image_tag @student.photo.url
@@ -48,3 +50,5 @@
       %td Yes
     - else
       %td No
+%br
+= link_to 'Back', students_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327184324) do
+ActiveRecord::Schema.define(:version => 20130328073229) do
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -75,25 +75,15 @@ ActiveRecord::Schema.define(:version => 20130327184324) do
     t.integer  "country_id"
   end
 
-  create_table "student_batches", :force => true do |t|
-    t.integer  "Student_id"
-    t.integer  "Batch_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "student_batches", ["Batch_id"], :name => "index_student_batches_on_Batch_id"
-  add_index "student_batches", ["Student_id"], :name => "index_student_batches_on_Student_id"
-
   create_table "student_grades", :force => true do |t|
-    t.integer  "Student_id"
-    t.integer  "Grade_id"
+    t.integer  "student_id"
+    t.integer  "grade_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "student_grades", ["Grade_id"], :name => "index_student_grades_on_Grade_id"
-  add_index "student_grades", ["Student_id"], :name => "index_student_grades_on_Student_id"
+  add_index "student_grades", ["grade_id"], :name => "index_student_grades_on_grade_id"
+  add_index "student_grades", ["student_id"], :name => "index_student_grades_on_student_id"
 
   create_table "students", :force => true do |t|
     t.string   "first_name"
@@ -117,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20130327184324) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.boolean  "ban"
   end
 
   add_index "students", ["city_id"], :name => "index_students_on_city_id"

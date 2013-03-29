@@ -1,3 +1,5 @@
+
+= render 'header'
 %h1 Assign grade
 = simple_form_for GradesStudents.new, :url => addgrade_path, method: :post do |f|
 
@@ -7,3 +9,5 @@
 
 
   = f.submit
+%br
+= link_to 'Cancel', students_path
