@@ -22,10 +22,10 @@ root :to => 'students#index'
 
    resources :batches do
     collection do
-
      delete 'multipledelete'
     end
    end
+
   resources :states do
     collection do
       delete 'destroy_multiple'
@@ -42,6 +42,7 @@ root :to => 'students#index'
     collection do
       delete 'destroy_multiple'
        put 'ban_multiple'
+       post 'assign_batch_multiple'
     end
   end
  
