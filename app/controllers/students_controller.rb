@@ -82,17 +82,21 @@ def addgrade
   end
  end
 			 end
-		
   def banmultiple
-    @students = Student.find(params[:students])
-    if request.put?
-      @student.each do |student|
+    if request.get?      
+@students = Student.all
+  p @students.count
+    elsif request.put?
+   @students = Student.find(params[:students])
+
+      @students.each do |student|
     student.ban = true    
       student.update_attributes(params[:student])
-          end
-	      end
+  end
+  end
 	      redirect_to students_path
 	      end
+end
 
   def assign_batch
     if request.post?
@@ -110,5 +114,5 @@ def addgrade
   end
 
 
-#end
+
 		

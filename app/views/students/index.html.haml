@@ -2,10 +2,10 @@
 = render 'header'
 
 %h1 Students list
-= form_tag destroy_multiple_students_path,  method: :delete do
+= form_tag index_action_path do
   = render "students_list" 
   = submit_tag "Delete selected"
-
+  = select_tag 'students', :options_from_collection_for_select ('action', 'well') :prompt => "select action"
 %br
 
 = link_to 'New Student', new_student_path
