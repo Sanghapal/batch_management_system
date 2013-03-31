@@ -42,13 +42,14 @@ root :to => 'students#index'
     collection do
       delete 'destroy_multiple'
        put 'ban_multiple'
-       post 'assign_batch_multiple'
     end
   end
+
  
-  match'/assign_batch' => 'students#assign_batch', :via => [:get, :post], as: :assign_batch
+  match'/assign_batch' => 'students#assign_batch', :via => [:get, :post]
   match'/addgrade' => 'students#addgrade', :via => [:get, :post], as: :addgrade
   match'/student/:state_id/city' => 'students#city', :via => :get, as: :city
+  match'/students/:grade_id/assign_batch_multiple' => 'students#assign_batch_multiple', :via => [:get, :post], as: :assign_batch_multiple
 
 
 

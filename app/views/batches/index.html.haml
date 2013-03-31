@@ -1,5 +1,4 @@
 
-= render 'header'
 %h1 Showing batches
 = form_tag multipledelete_batches_path, method: :delete do
 
@@ -16,7 +15,7 @@
         %td= batch.title
         %td= link_to 'Show details', batch_path(batch)
         %td= link_to 'Edit', edit_batch_path(batch)
-    = submit_tag "Delete multiple batches"
+  = submit_tag "Delete multiple batches"
 
 %br
 

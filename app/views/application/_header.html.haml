@@ -1,15 +1,24 @@
-%ul
-  %li
-    = link_to ' Grades', grades_path
-  %li
-    = link_to ' Batches', batches_path
-  %li
-    = link_to ' Students', students_path
-  %li
-    = link_to 'Assign Grade', addgrade_path
-  %li
-    = link_to  'Cities ', cities_path
-  %li
-    = link_to ' States', states_path
-  %li
-    = link_to "Assign batch", assign_batch_path
+.navbar.navbar-inverse
+  .navbar-inner
+    .container-fluid
+      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{:href => "#"} Batch Management System 
+      .nav-collapse.collapse
+        %ul.nav
+          %li.active
+            = link_to ' Grades', grades_path
+          %li
+            = link_to ' Batches', batches_path
+          %li
+            = link_to ' Students', students_path
+          %li
+            = link_to 'Assign Grade', addgrade_path
+          %li
+            = link_to  'Cities ', cities_path
+          %li
+            = link_to ' States', states_path
+          %li
+            = link_to "Assign batch", assign_batch_path
