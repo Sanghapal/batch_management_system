@@ -41,17 +41,22 @@ root :to => 'students#index'
   resources :students do
     collection do
       delete 'destroy_multiple'
+     
       put 'banmultiple'
        post 'assign_batch_multiple'
     end
   end
-  match'/banmultiple' => 'students#banmultiple', :via => [:get, :put], as: :banmultiple
+  #match'/banmultiple' => 'students#banmultiple', :via => [:get, :put] 
 match '/index_action' => 'students#index_action', :via => :get
 #match '/students/index_action' => 'students#index_action', :via => :get, as: :index_action
+    
+  
+
  
-  match'/assign_batch' => 'students#assign_batch', :via => [:get, :post], as: :assign_batch
+  match'/assign_batch' => 'students#assign_batch', :via => [:get, :post]
   match'/addgrade' => 'students#addgrade', :via => [:get, :post], as: :addgrade
   match'/student/:state_id/city' => 'students#city', :via => :get, as: :city
+  match'/students/:grade_id/assign_batch_multiple' => 'students#assign_batch_multiple', :via => [:get, :post], as: :assign_batch_multiple
 
 
 

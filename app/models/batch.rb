@@ -7,19 +7,43 @@ class Batch < ActiveRecord::Base
   validate :checkdate
   validate :mytime
   validate :caldate
+validate :countdate
+validate :cal_time
+validate :counttime
   def checkdate
     if end_date && starte_date
       errors.add(:end_date, "End date should not be smaller than start date ") if end_date < starte_date
     end
   end
   def caldate
-errors.add(:end_date, " You have entered invalid date")     if end_date > Date.month(4).starte_date
+    if end_date && starte_date
 
-    end
-  end
+errors.add(:end_date, "needs to be 4 months after start date") if end_date < starte_date+4.months-1.day
+end
+end
+
+  def countdate
+    if end_date && starte_date
+
+errors.add(:end_date, "needs to be 4 months after start date") if end_date > starte_date+4.months-1.day
+end
+end
   def mytime
     if end_time && from_time
       errors.add(:from_time, "Please enter valid time") if end_time < from_time
     end
  end
+
+  def cal_time
+
+
+    if end_time && from_time
+errors.add(:end_time, "needs to be 2:30 minutes after start time") if end_time < from_time+2.hours+30.minutes
+end
+end
+def counttime
+    if end_time && from_time
+errors.add(:end_time, "needs to be 2:30 minutes after start time") if end_time > from_time+2.hours+30.minutes
+end
+end
 end

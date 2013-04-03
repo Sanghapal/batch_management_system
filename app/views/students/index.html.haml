@@ -1,12 +1,13 @@
 
-= render 'header'
 
 %h1 Students list
-= form_tag index_action_path do
+= form_tag banmultiple_students_path, method: :post do
   = render "students_list" 
-  = submit_tag "Delete selected"
-  = select_tag 'students', :options_from_collection_for_select ('action', 'well') :prompt => "select action"
+  = select_tag "students", "<option>Ban  </option><option>Delete</option>".html_safe
+  = submit_tag "Take action"
+
 %br
 
 = link_to 'New Student', new_student_path
 %br
+= link_to 'create ban student', banmultiple_students_path
