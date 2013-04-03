@@ -44,6 +44,7 @@ gem "haml-rails"
 gem "bson_ext"
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 gem 'simple_form'
+gem 'select2-rails'
 gem 'nested_form'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem "bootstrap-sass-rails"

@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_filter :load_country_state_city, :except => [:destroy, :show]
 
   def index
     @students = Student.all
@@ -59,6 +60,9 @@ class StudentsController < ApplicationController
   def city
     @state = State.find(params[:state_id])    
     @cities = @state.cities
+    render :update do |page|
+      page.replace_html "cities", :partial => "city", :object => @cities
+    end
   end
 
   def state
@@ -96,6 +100,17 @@ def addgrade
   def assign_batch_multiple    
     @grade = Grade.find(params[:grade_id])
     @students = @grade.students
-
+     if request.post?
+      @student = BatchesStudents.new(params[:batches_students])
+      respond_to do |format|
+        if @student.save
+          format.html { redirect_to students_path, notice: 'assign batch successfully..' }
+          format.json { render json: students_path, status: :created, location: @student }
+        else
+          format.html { render action: "assign_batch" }
+          format.json { render json: @student.errors, status: :unprocessable_entity }
+        end
+      end
+    end
   end
 end		

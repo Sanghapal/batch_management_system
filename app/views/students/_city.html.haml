@@ -1,5 +1,1 @@
-= simple_form_for Student.new, url: city_path(@state), method: :get do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.association :city, :collection => @state.cities.entries, :prompt => "Select city", :id => 'combocity'
+= collection_select(nil, :city_id, City, :id, :name, {:prompt => "Select city" } )
