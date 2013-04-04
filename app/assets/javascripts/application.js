@@ -17,7 +17,7 @@
 //= require_tree .
 //= require jquery-ui
 //= require jquery.ui.datepicker
-//= require bootstrap-timepicker
+//= require jquery.timepicker.js
 
 //
 

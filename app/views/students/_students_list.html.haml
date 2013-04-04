@@ -9,4 +9,6 @@
       %td= check_box_tag "students[]", student.id
       %td= student.first_name + " " + student.last_name
       %td= link_to "Show Details", student_path(student)
+
       %td= link_to 'Edit', edit_student_path(student)
+      %td= link_to 'Ban this student', banmultiple_path(student), method: :put

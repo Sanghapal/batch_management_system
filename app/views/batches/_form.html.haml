@@ -7,10 +7,9 @@
     = f.collection_select :grade_id, Grade.all, :id, :title, :prompt => "Select Grade"
     = f.input :starte_date, :label => "Start Date", :as => :datepicker, :readonly => true
     = f.input :end_date, :as => :datepicker, :readonly => true
+ 
     = f.input :from_time, as: :Time
-    =f.input :end_time, as: :Time
-
-
+    = f.input :end_time, as: :Time
     =f.input :deys_of_week, collection: ['Monday, Wednesday, Friday.', 'Tuesday, Thursday, Saturday.'], as: :radio_buttons
   .form-actions
     = f.button :submit

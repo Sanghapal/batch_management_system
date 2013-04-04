@@ -86,30 +86,22 @@ def addgrade
   end
  end
 
-  def index_action
-    p "-----------------"
-   p params
-    if params[:index_action] == "ban"
-
-    
-    banmultiple
-    elsif params[:index_action] == "delete"
-destroy_multiple
-end
-end
 
   def banmultiple
+
+    @student = Student.find(params[:id])
+
     if request.put?
-    @students = Student.find(params[:students])
+        respond_to do |format|
 
-      @students.each do |student|
-        student.ban.true    
-        student.update_attributes(params[:students])
-      end
+        @student.ban = true    
+p @student
+        @student.update_attributes(params[:student])
+        format.html { redirect_to students_path, notice: 'assign grade successfully..' }
+	
     end
-	redirect_to students_path
   end
-
+end
   def assign_batch_multiple    
     @grade = Grade.find(params[:grade_id])
     @students = @grade.students
