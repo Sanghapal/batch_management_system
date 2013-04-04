@@ -42,11 +42,10 @@ root :to => 'students#index'
     collection do
       delete 'destroy_multiple'
      
-      put 'banmultiple'
        post 'assign_batch_multiple'
     end
   end
-  #match'/banmultiple' => 'students#banmultiple', :via => [:get, :put] 
+  match'/students/:student_id/banmultiple' => 'students#banmultiple', :via => [:get, :put], as: :banmultiple
 match '/index_action' => 'students#index_action', :via => :get
 #match '/students/index_action' => 'students#index_action', :via => :get, as: :index_action
     
