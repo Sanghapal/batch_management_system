@@ -50,5 +50,9 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem "bootstrap-sass-rails"
 
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',:git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+#gem 'bootstrap-timepicker-rails'
+
+gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails', :git => 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
+
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
