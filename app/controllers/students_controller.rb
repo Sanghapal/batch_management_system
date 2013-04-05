@@ -88,20 +88,19 @@ def addgrade
 
 
   def banmultiple
-
-    @student = Student.find(params[:id])
-
+    @student = Student.find(params[:student_id])
+    p params
+    p "--------------"
+    p @student
     if request.put?
-        respond_to do |format|
-
+      respond_to do |format|
         @student.ban = true    
-p @student
         @student.update_attributes(params[:student])
-        format.html { redirect_to students_path, notice: 'assign grade successfully..' }
-	
+        format.html { redirect_to students_path, notice: @student.first_name + " " + @student.last_name + " has been ban. "}	
+      end
     end
   end
-end
+
   def assign_batch_multiple    
     @grade = Grade.find(params[:grade_id])
     @students = @grade.students
