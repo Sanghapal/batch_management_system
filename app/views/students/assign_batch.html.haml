@@ -1,12 +1,6 @@
-
 %h1 Assign batch
-= simple_form_for BatchesStudents.new, :url => assign_batch_path, method: :get do |f|
+%td= select_tag 'grade', options_from_collection_for_select(Grade.all.entries, :id, :title), :id => "combgrade", :prompt => "Select grade"
+%div{ :id => "studentListForm"}
 
-  = f.error_notification
-  = select_tag 'grade', options_from_collection_for_select(Grade.all.entries, :id, :title), :id => "combgrade", :prompt => "Select grade"
-  = f.input :batch_id, :collection => Batch.all.entries, :label_method => :title, :value_method => :id, :prompt => "Select batch"
-  %div{ :id => "studentListForm"}
-  
-
-  %br
-  = link_to 'Cancel', students_path
+%br
+= link_to 'Cancel', students_path

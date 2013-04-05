@@ -1,4 +1,6 @@
-%h2 Student list for assign grade
-= form_tag assign_batch_multiple_path do
+= simple_form_for assign_batch_multiple_path, method: :post do |f|
+  = f.input :batch_id, :collection => @grade.batches.all.entries, :label_method => :title, :value_method => :id, :prompt => "Select batch"
+  %h2 Student list for assign grade
   = render "students_list" 
+  
   = submit_tag "Assign batch"
