@@ -2,3 +2,12 @@
   .well.sidebar-nav
     %ul.nav.nav-list
       %li.nav-header
+      - if params[:controller] == "students"
+        %li Student
+        = link_to 'New Student', new_student_path
+        %li
+        = link_to 'Assign Grade', addgrade_path
+        %li
+        = link_to "Assign batch", assign_batch_path
+      - elsif params[:controller] == "students" && params[:action] == "new"
+        %li New
