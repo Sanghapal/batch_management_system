@@ -1,0 +1,15 @@
+
+= form_tag banmultiple_path,  method: :post do
+  %table.table
+    %tr
+      %th Select students
+      %th Full name
+      %th
+    - @student.each do |student|
+      %tr
+        %td= check_box_tag "students[]", student.id
+        %td= student.first_name + " " + student.last_name
+        %td= link_to "Show Details", student_path(student)
+        %td= link_to 'Edit', edit_student_path(student)
+    = submit_tag "Ban Student"
+    %br

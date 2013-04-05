@@ -1,0 +1,1 @@
+$(".some-time-inputs").timepicker 
