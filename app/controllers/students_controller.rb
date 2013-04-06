@@ -25,6 +25,7 @@ class StudentsController < ApplicationController
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
       else
+p @student.errors
         format.html { render action: "new" }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
@@ -88,11 +89,12 @@ def addgrade
 
 
   def banmultiple
-    @student = Student.find(params[:student_id])
     p params
     p "--------------"
     p @student
     if request.put?
+    @student = Student.find(params[:student_id])
+
       respond_to do |format|
         @student.ban = true    
         @student.update_attributes(params[:student])
@@ -100,6 +102,7 @@ def addgrade
       end
     end
   end
+
 
   def assign_batch_multiple    
     @grade = Grade.find(params[:grade_id])
