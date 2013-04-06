@@ -41,7 +41,7 @@ root :to => 'students#index'
   resources :students do
     collection do
       delete 'destroy_multiple'
-     
+      #put 'banmultiple'
        post 'assign_batch_multiple'
     end
   end
