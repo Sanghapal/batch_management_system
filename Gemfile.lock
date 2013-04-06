@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/Nerian/bootstrap-datepicker-rails.git
-  revision: 5df8569f9e4d15223c0d2d2841a7b9e6099cb5c6
+  revision: b80fe3cd34fb68e7e2c6f3536dc7b58039fddfaf
   specs:
-    bootstrap-datepicker-rails (1.0.0.2)
+    bootstrap-datepicker-rails (1.0.0.3)
       railties (>= 3.0)
 
 GIT
@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: f28d75b81818386407f1ebd505058e0236920fd9
+  revision: 7d807c6af3e89c56e2e846352074f2eac1620115
   specs:
     paperclip (3.4.1)
       activemodel (>= 3.0.0)
@@ -33,7 +33,7 @@ GIT
       railties (>= 3.0)
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (3.2.11)
       actionpack (= 3.2.11)
@@ -85,7 +85,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    haml (4.0.1)
+    haml (4.0.2)
       tilt
     haml-rails (0.4)
       actionpack (>= 3.1, < 4.1)
@@ -105,9 +105,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.22)
     multi_json (1.7.2)
-    mysql2 (0.3.11)
     mysql2 (0.3.11-x86-mingw32)
-    nested_form (0.3.1)
+    nested_form (0.3.2)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
