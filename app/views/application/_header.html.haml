@@ -9,7 +9,6 @@
       %a.brand{:href => "#"} Batch Management System 
       .nav-collapse.collapse
       - if user_signed_in?
-        = link_to 'Log out', destroy_user_session_path
         %ul.nav
           %li.active
             = link_to ' Grades', grades_path

@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name    
+    = f.input :name, :collection => City.all.entries, :prompt => "Select city" 
     = f.association :state, :collection => State.all.entries, :prompt => "Select state"
 
   .form-actions

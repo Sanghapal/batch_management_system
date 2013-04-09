@@ -1,0 +1,12 @@
+
+%h1 Grade Details
+%table
+  %tr
+    %th Grade Title
+    %th Grade Description
+    %th
+      %tr
+        %td= @grade.title
+        %td= @grade.description
+%br
+= link_to 'Back', grades_path
