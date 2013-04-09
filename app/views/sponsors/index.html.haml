@@ -1,0 +1,20 @@
+
+%h1 Showing all  grades
+= form_tag multipledelete_grades_path, method: :delete do
+  %table
+    %tr
+      %th Select grade
+      %th Title
+      %th
+      %th
+      %th
+    - @grades.each do |grade|
+      %tr
+        %td= check_box_tag "grades[]", grade.id
+        %td= grade.title
+        %td= link_to 'Show Details', grade_path(grade)
+        %td= link_to 'Edit', edit_grade_path(grade)
+  = submit_tag "Delete selected grades"
+%br
+
+= link_to 'New Grade', new_grade_path

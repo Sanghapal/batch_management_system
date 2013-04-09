@@ -11,3 +11,12 @@
         = link_to "Assign batch", assign_batch_path
       - elsif params[:controller] == "students" && params[:action] == "new"
         %li New
+      - elsif params[:controller] == "grades"
+        %li Grade
+        = link_to 'New Grade', new_grade_path
+        %li
+        = link_to 'index', grades_path
+        %li
+      - elsif params[:controller] == "grades" && params[:action] == "new"
+        %li new       
+        
