@@ -53,6 +53,7 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',:git 
 #gem 'bootstrap-timepicker-rails'
 
 gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails', :git => 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
+gem 'devise'
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 

@@ -1,9 +1,17 @@
 BatchManagementSystem::Application.routes.draw do
+  
+resources :trainers
+devise_for :users, :path_names => {:sign_in => 'login', 
+              :sign_out => 'logout',    
+	      :password => 'secret',    
+	      :confirmation => 'verification', 
+	      :root_path => 'home#index'  
+	      } 
 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-root :to => 'students#index'
+root :to => 'home#index'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
