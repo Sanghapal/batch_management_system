@@ -25,14 +25,15 @@ root :to => 'home#index'
    resources :grades do
     collection do
       delete 'multipledelete'
-    end
-   end
-
    resources :batches do
     collection do
      delete 'multipledelete'
     end
    end
+
+    end
+   end
+
 
   resources :states do
     collection do
