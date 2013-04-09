@@ -1,9 +1,17 @@
 BatchManagementSystem::Application.routes.draw do
+  
+resources :trainers
+devise_for :users, :path_names => {:sign_in => 'login', 
+              :sign_out => 'logout',    
+	      :password => 'secret',    
+	      :confirmation => 'verification', 
+	      :root_path => 'home#index'  
+	      } 
 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-root :to => 'students#index'
+root :to => 'home#index'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -14,24 +22,18 @@ root :to => 'students#index'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-   
-resources :sponsors do
-    collection do
-      delete 'destroy_multiple'
-    end
-  end
-
    resources :grades do
     collection do
       delete 'multipledelete'
-    end
-   end
-
    resources :batches do
     collection do
      delete 'multipledelete'
     end
    end
+
+    end
+   end
+
 
   resources :states do
     collection do
@@ -109,3 +111,4 @@ match '/index_action' => 'students#index_action', :via => :get
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 end
+
