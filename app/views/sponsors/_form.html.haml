@@ -1,9 +1,14 @@
-= simple_form_for(@sopnsor) do |f|
+= simple_form_for(@sponsor) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    =f.input :description, :as => :text, :required => true, :input_html => {:cols => 20, :rows => 5}
+    = f.input :first_name
+    = f.input :middle_name
+    = f.input :last_name
+    = f.input :address
+    = f.input :pan_number
+    = f.input :email
+    = f.input :phone
 
   .form-actions
     = f.button :submit

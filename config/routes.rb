@@ -14,6 +14,13 @@ root :to => 'students#index'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+   
+resources :sponsors do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
    resources :grades do
     collection do
       delete 'multipledelete'
