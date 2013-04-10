@@ -15,15 +15,11 @@
         %li Grade
         = link_to 'New Grade', new_grade_path
         %li
-        = link_to 'index', grades_path
-        %li
       - elsif params[:controller] == "grades" && params[:action] == "new"
         %li new       
       - elsif params[:controller] == "batches"
         %li Batch
         = link_to 'New Batch', new_batch_path
-        %li
-        = link_to 'index', batches_path
         %li
       - elsif params[:controller] == "batches" && params[:action] == "new"
         %li new  
@@ -31,15 +27,11 @@
         %li Sponsor
         = link_to 'New Sponsor', new_sponsor_path
         %li
-        = link_to 'index', sponsors_path
-        %li
       - elsif params[:controller] == "sponsors" && params[:action] == "new"
         %li new 
       - elsif params[:controller] == "trainers"
         %li Trainer
         = link_to 'New Trainer', new_trainer_path
-        %li
-        = link_to 'index', trainers_path
         %li
       - elsif params[:controller] == "trainers" && params[:action] == "new"
         %li new       	

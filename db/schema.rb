@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409075052) do
+ActiveRecord::Schema.define(:version => 20130410100627) do
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -70,6 +70,17 @@ ActiveRecord::Schema.define(:version => 20130409075052) do
   add_index "grades_students", ["grade_id"], :name => "index_grades_students_on_grade_id"
   add_index "grades_students", ["student_id"], :name => "index_grades_students_on_student_id"
 
+  create_table "marking_patterns", :force => true do |t|
+    t.integer  "marks"
+    t.integer  "grade_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "marking_patterns", ["grade_id"], :name => "index_marking_patterns_on_grade_id"
+  add_index "marking_patterns", ["subject_id"], :name => "index_marking_patterns_on_subject_id"
+
   create_table "sponsors", :force => true do |t|
     t.string   "first_name"
     t.string   "middle_name"
@@ -116,6 +127,12 @@ ActiveRecord::Schema.define(:version => 20130409075052) do
 
   add_index "students", ["city_id"], :name => "index_students_on_city_id"
   add_index "students", ["state_id"], :name => "index_students_on_state_id"
+
+  create_table "subjects", :force => true do |t|
+    t.string   "subject"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
