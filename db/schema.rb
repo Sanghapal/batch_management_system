@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410100627) do
+ActiveRecord::Schema.define(:version => 20130410113631) do
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20130410100627) do
   add_index "grades_students", ["grade_id"], :name => "index_grades_students_on_grade_id"
   add_index "grades_students", ["student_id"], :name => "index_grades_students_on_student_id"
 
-  create_table "marking_patterns", :force => true do |t|
+  create_table "grades_subjects", :force => true do |t|
     t.integer  "marks"
     t.integer  "grade_id"
     t.integer  "subject_id"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(:version => 20130410100627) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "marking_patterns", ["grade_id"], :name => "index_marking_patterns_on_grade_id"
-  add_index "marking_patterns", ["subject_id"], :name => "index_marking_patterns_on_subject_id"
+  add_index "grades_subjects", ["grade_id"], :name => "index_grades_subjects_on_grade_id"
+  add_index "grades_subjects", ["subject_id"], :name => "index_grades_subjects_on_subject_id"
 
   create_table "sponsors", :force => true do |t|
     t.string   "first_name"
