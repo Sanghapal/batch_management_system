@@ -22,6 +22,12 @@ root :to => 'home#index'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+   resources :sponsors do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
    resources :grades do
     collection do
       delete 'multipledelete'
@@ -111,3 +117,4 @@ match '/index_action' => 'students#index_action', :via => :get
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 end
+

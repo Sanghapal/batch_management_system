@@ -1,12 +1,22 @@
 
-%h1 Grade Details
+%h1 Sponsor Details
 %table
   %tr
-    %th Grade Title
-    %th Grade Description
+    %th First_name
+    %th Middle_name
+    %th Last_name
+    %th Address
+    %th Phone
+    %th Pan_no
+    %th email
     %th
       %tr
-        %td= @grade.title
-        %td= @grade.description
-%br
-= link_to 'Back', grades_path
+        %td= @sponsor.first_name
+        %td= @sponsor.middle_name
+        %td= @sponsor.last_name
+        %td= @sponsor.address
+        %td= @sponsor.phone
+        %td= @sponsor.pan_no
+        %td= @sponsor.email	
+        %br
+= link_to 'Back', sponsors_path
