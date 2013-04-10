@@ -4,6 +4,8 @@
   .form-inputs
     = f.input :title
     =f.input :description, :as => :text, :required => true, :input_html => {:cols => 20, :rows => 5}
+    = f.input :student_fee
+    = f.input :sponsor_fee
 
   .form-actions
     = f.button :submit

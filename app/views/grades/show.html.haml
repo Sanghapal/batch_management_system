@@ -4,9 +4,14 @@
   %tr
     %th Grade Title
     %th Grade Description
+    %th Grade Student_Fee
+    %th Grade Sponsors_fee
+
     %th
       %tr
         %td= @grade.title
         %td= @grade.description
+        %td= @grade.student_fee
+        %td= @grade.sponsor_fee
 %br
 = link_to 'Back', grades_path

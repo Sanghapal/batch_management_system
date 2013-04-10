@@ -1,20 +1,32 @@
 
-%h1 Showing all  grades
-= form_tag multipledelete_grades_path, method: :delete do
+%h1 Showing all  sponsors
+= form_tag destroy_multiple_sponsors_path, method: :delete do
   %table
     %tr
-      %th Select grade
-      %th Title
+      %th Select sponsor
+      %th first_name
+      %th middle_name
+      %th last_name
+      %th address
+      %th pan_no
+      %th phone
+      %th email
       %th
       %th
       %th
-    - @grades.each do |grade|
+    - @sponsors.each do |sponsor|
       %tr
-        %td= check_box_tag "grades[]", grade.id
-        %td= grade.title
-        %td= link_to 'Show Details', grade_path(grade)
-        %td= link_to 'Edit', edit_grade_path(grade)
-  = submit_tag "Delete selected grades"
+        %td= check_box_tag "sponsors[]", sponsor.id
+        %td= sponsor.first_name
+        %td= sponsor.middle_name
+        %td= sponsor.last_name
+        %td= sponsor.address
+        %td= sponsor.pan_number
+        %td= sponsor.phone
+        %td= sponsor.email 
+        %td= link_to 'Show Details', sponsor_path(sponsor)
+        %td= link_to 'Edit', edit_sponsor_path(sponsor)
+  = submit_tag "Delete selected sponsors"
 %br
 
-= link_to 'New Grade', new_grade_path
+= link_to 'New Sponsor', new_sponsor_path
