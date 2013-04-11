@@ -7,6 +7,8 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/schema.rb
+#ignore photos that are uploaded while testing
+/public/system/students/photos
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

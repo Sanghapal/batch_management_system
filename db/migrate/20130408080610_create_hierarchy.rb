@@ -1,7 +1,13 @@
 class CreateHierarchy < ActiveRecord::Migration
   def up
     s1 = State.find_by_name("Maharashtra")
-
+    if s1.nil?
+      c1 = Country.find_by_name("India")
+      if c1.nil?
+        c1 = Country.create(:name => "India")
+      end
+      s1 = State.create(:name => "Maharashtra", :country_id => c1.id)
+    end
     City.create(:name => "Akola", :state_id => s1.id)
     City.create(:name => "Amrawati", :state_id => s1.id)
     City.create(:name => "Bukdhana", :state_id => s1.id)
@@ -38,7 +44,6 @@ class CreateHierarchy < ActiveRecord::Migration
     City.create(:name => "Satara", :state_id => s1.id)
     City.create(:name => "Solapur", :state_id => s1.id)
 end
-
 
   def down
   end
