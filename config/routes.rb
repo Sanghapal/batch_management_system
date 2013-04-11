@@ -1,6 +1,5 @@
 BatchManagementSystem::Application.routes.draw do
 resources :subjects
-resources :marking_patterns
 resources :trainers
 devise_for :users, :path_names => {:sign_in => 'login', 
               :sign_out => 'logout',    
