@@ -53,9 +53,11 @@ ActiveRecord::Schema.define(:version => 20130411074355) do
   create_table "grades", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.float    "student_fee"
+    t.string   "batch_duration"
+    t.string   "session_duration"
   end
 
   create_table "grades_students", :force => true do |t|
