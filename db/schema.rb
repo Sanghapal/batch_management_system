@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130411062424) do
 
-  create_table "add_column_to_grades", :force => true do |t|
-    t.string   "batch_duration"
-    t.string   "session_duration"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
   create_table "batches", :force => true do |t|
     t.string   "title"
     t.integer  "grade_id"
