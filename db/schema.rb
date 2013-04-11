@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410113631) do
+ActiveRecord::Schema.define(:version => 20130411062424) do
+
+  create_table "add_column_to_grades", :force => true do |t|
+    t.string   "batch_duration"
+    t.string   "session_duration"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -53,10 +60,12 @@ ActiveRecord::Schema.define(:version => 20130410113631) do
   create_table "grades", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.float    "student_fee"
     t.float    "sponsor_fee"
+    t.string   "batch_duration"
+    t.string   "session_duration"
   end
 
   create_table "grades_students", :force => true do |t|
