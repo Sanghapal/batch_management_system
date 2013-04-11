@@ -1,6 +1,5 @@
 BatchManagementSystem::Application.routes.draw do
 resources :subjects
-resources :marking_patterns
 resources :trainers
 devise_for :users, :path_names => {:sign_in => 'login', 
               :sign_out => 'logout',    
@@ -29,17 +28,17 @@ root :to => 'home#index'
     end
   end
 
-   resources :grades do
-    collection do
-      delete 'multipledelete'
    resources :batches do
     collection do
      delete 'multipledelete'
+end
+end
+   resources :grades do
+    collection do
+      delete 'multipledelete'
     end
    end
-
-    end
-   end
+match '/grades/:grade_id/batches' => 'batches#index'
 
 
   resources :states do
