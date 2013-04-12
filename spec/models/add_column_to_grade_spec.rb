@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe GradesSubjects do
+describe AddColumnToGrade do
   pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410113631) do
+ActiveRecord::Schema.define(:version => 20130411074355) do
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -53,10 +53,11 @@ ActiveRecord::Schema.define(:version => 20130410113631) do
   create_table "grades", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.float    "student_fee"
-    t.float    "sponsor_fee"
+    t.string   "batch_duration"
+    t.string   "session_duration"
   end
 
   create_table "grades_students", :force => true do |t|
@@ -70,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20130410113631) do
   add_index "grades_students", ["grade_id"], :name => "index_grades_students_on_grade_id"
   add_index "grades_students", ["student_id"], :name => "index_grades_students_on_student_id"
 
-  create_table "grades_subjects", :force => true do |t|
+  create_table "marking_pattens", :force => true do |t|
     t.integer  "marks"
     t.integer  "grade_id"
     t.integer  "subject_id"
@@ -78,8 +79,8 @@ ActiveRecord::Schema.define(:version => 20130410113631) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "grades_subjects", ["grade_id"], :name => "index_grades_subjects_on_grade_id"
-  add_index "grades_subjects", ["subject_id"], :name => "index_grades_subjects_on_subject_id"
+  add_index "marking_pattens", ["grade_id"], :name => "index_marking_pattens_on_grade_id"
+  add_index "marking_pattens", ["subject_id"], :name => "index_marking_pattens_on_subject_id"
 
   create_table "sponsors", :force => true do |t|
     t.string   "first_name"

@@ -2,10 +2,12 @@
 %h1 Grade Details
 %table
   %tr
-    %th Grade Title
-    %th Grade Description
-    %th Grade Student_Fee
-    %th Grade Sponsors_fee
+    %th Title
+    %th Description
+    %th Student_Fee
+    %th Sponsors_fee
+    %th Batch_duration
+    %th Session_duration
 
     %th
       %tr
@@ -13,5 +15,7 @@
         %td= @grade.description
         %td= @grade.student_fee
         %td= @grade.sponsor_fee
+        %td= @grade.batch_duration
+        %td= @grade.session_duration
 %br
 = link_to 'Back', grades_path

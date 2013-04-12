@@ -1,5 +1,5 @@
 class Subject < ActiveRecord::Base
   attr_accessible :subject
-  
-  has_and_belongs_to_many :grades
+  has_many :marking_pattens
+  has_many :grades, :through => :marking_pattens
 end
