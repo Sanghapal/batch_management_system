@@ -1,0 +1,25 @@
+Student many to many grades
+grades 1 to many batches
+students many to many batches
+batches 1 to many sessions(session:date, from_time,to_time,remarks,batch_id)
+sessions many to many students (student_id,session_id,attendence)
+
+Note:
+Student.Qualifies_with is not student field. It is field of student_grades as student_grades.qualifies_with
+sponsorship is also student_grades.sponsorship.
+Enquiries needs name (first, middle, last) and phone
+Sponsors (name(first,middle,last), email, phone, address, PAn Number) anong with students they have sponsored.
+Fees per grade. Fees by sponsors. Fees by students. Student pays either min fee or full fee. 
+Paid fees are student_grade specific and not student specific.
+Fee structure is grade specific.
+Sponsor paid/not yet paid;student paid/not yet paid.
+Trainer (name(first,middle,last), phone, email, subject he/she teaches) along with grades he/she can train for. Trainer assigned batches
+Students homework done/not done/not assigned per session 
+test (date, student, batch<grade, subjectwise marks(derived out of marking pattern), Total, percent, pass/fail)
+Marking pattern is relationship between grade and subjects that defines Marks per subject per grade.
+
+
+queries to Basavraj 
+Sponsors
+Trainers
+Existing flow
