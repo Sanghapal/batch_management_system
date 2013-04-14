@@ -10,6 +10,6 @@
  
     = f.input :from_time, as: :Time
     = f.input :end_time, as: :Time
-    =f.input :deys_of_week, collection: ['Monday, Wednesday, Friday.', 'Tuesday, Thursday, Saturday.'], as: :radio_buttons
+    =f.input :deys_of_week, collection: ['Monday, Wednesday, Friday.', 'Tuesday, Thursday, Saturday', 'Monday to Friday '], as: :radio_buttons
   .form-actions
     = f.button :submit
