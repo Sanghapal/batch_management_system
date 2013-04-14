@@ -28,17 +28,18 @@ root :to => 'home#index'
     end
   end
 
+   resources :grades do
+    collection do
+
+      delete 'multipledelete'
+end
    resources :batches do
     collection do
      delete 'multipledelete'
 end
 end
-   resources :grades do
-    collection do
-      delete 'multipledelete'
-    end
-   end
-match '/grades/:grade_id/batches' => 'batches#index'
+end
+
 
 
   resources :states do

@@ -1,6 +1,8 @@
 class BatchesController < ApplicationController
   def index
-    @batches = Batch.all
+    @grade = Grade.find(params[:grade_id])
+
+    @batches = @grade.batches
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,7 +20,9 @@ class BatchesController < ApplicationController
   end
 
   def new
-    @batch = Batch.new
+    @grade = Grade.find(params[:grade_id])
+        @batch = @grade.batches.build
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -30,11 +34,11 @@ class BatchesController < ApplicationController
   end
 
   def create
-    @batch = Batch.new(params[:batch])
-
+    @grade = Grade.find(params[:grade_id])
+    @batch = @grade.batches.build(params[:batch])
     respond_to do |format|
       if @batch.save
-        format.html { redirect_to batches_path, notice: 'Batch was successfully created.' }
+        format.html { redirect_to grade_batches_path, notice: 'Batch was successfully created.' }
         format.json { render json: @batch, status: :created, location: @batch }
       else
         format.html { render action: "new" }
@@ -44,11 +48,13 @@ class BatchesController < ApplicationController
   end
 
   def update
-    @batch = Batch.find(params[:id])
+      @grade = Grade.find(params[:grade_id])
 
+    #@batch = Batch.find(params[:id])
+ @batch = @grade.batches.find(params[:id])
     respond_to do |format|
       if @batch.update_attributes(params[:batch])
-        format.html { redirect_to batches_path, notice: 'Batch was successfully updated.' }
+        format.html { redirect_to grade_batches_path, notice: 'Batch was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -62,7 +68,7 @@ class BatchesController < ApplicationController
 
           if params[:batches] != nil
 Batch.destroy(params[:batches])
-      format.html { redirect_to batches_url }
+      format.html { redirect_to grade_batches_url }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,6 @@
 
 %h1 Showing batches
-= form_tag multipledelete_batches_path, method: :delete do
+= form_tag multipledelete_grade_batches_path, method: :delete do
 
   %table
     %tr
@@ -11,14 +11,11 @@
     - @batches.each do |batch|
       %tr
         %td= check_box_tag "batches[]", batch.id
-
         %td= batch.title
-        %td= link_to 'Show details', batch_path(batch)
-        %td= link_to 'Edit', edit_batch_path(batch)
+        %td= link_to 'Show details', grade_batch_path(@grade, batch)
   = submit_tag "Delete multiple batches"
 
 %br
 
 
-= link_to 'New Batch', new_batch_path
-= link_to 'Home', root_path
+= link_to 'New Batch', new_grade_batch_path

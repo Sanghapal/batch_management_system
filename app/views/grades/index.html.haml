@@ -12,7 +12,7 @@
       %tr
         %td= check_box_tag "grades[]", grade.id
         %td= grade.title
-        %td= link_to 'Manage batch', new_batch_path(@grade)
+        %td= link_to 'Show Batches', grade_batches_path(grade)
         %td= link_to 'Show Details', grade_path(grade)
         %td= link_to 'Edit', edit_grade_path(grade)
   = submit_tag "Delete selected grades"
