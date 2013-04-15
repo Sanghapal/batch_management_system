@@ -15,6 +15,7 @@
         %td= link_to 'Manage batch', new_batch_path(@grade)
         %td= link_to 'Show Details', grade_path(grade)
         %td= link_to 'Edit', edit_grade_path(grade)
+        %td= link_to "Subject and marks", subjects_list_path(grade)
   = submit_tag "Delete selected grades"
 %br
 

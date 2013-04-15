@@ -58,21 +58,32 @@ class GradesController < ApplicationController
   end
 
   def multipledelete
-
     respond_to do |format|
-    if params[:grades] != nil
-      Grade.destroy(params[:grades])
-      format.html { redirect_to grades_url }
-      format.json { head :no_content }
+      if params[:grades] != nil
+        Grade.destroy(params[:grades])
+        format.html { redirect_to grades_url }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to grades_url }
+        format.json { head :no_content }
+      end
+    end
+  end
+
+  def subjects_list
+    @grade = Grade.find(params[:grade_id])
+    @marking_pattens = @grade.marking_pattens
+    @subjects = Subject.where("id NOT IN (?)", @grade.subjects)
+    if request.post?
+      @marking_pattens = MarkingPatten.new(params[:subjects].map(&:to_i))
+      p "------------"
+      p @marking_pattens.map(&:to_i)
+      @marking_pattens.each do |marking_patten|
+        marking_patten.grade_id = @grade.id
+p marking_patten
+        marking_patten.save
+      end
+      redirect_to subjects_list_path
     end
   end
 end
-end
-  def multidelete
-        @grade = Grade.find(params[:id])
-
-    if @grade.params[:grade] != nil
-        Grade.destroy(params[:id])
-      redirect_to grades_path
-    end
-      end

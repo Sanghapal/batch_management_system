@@ -3,6 +3,6 @@ class Grade < ActiveRecord::Base
     has_and_belongs_to_many :students
     has_many :marking_pattens
     has_many :subjects, :through => :marking_pattens
-  has_many :batches, :dependent => :destroy
+   has_many :batches, :dependent => :destroy
   validates :title, :description, :presence => true 
 end

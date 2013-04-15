@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130411074355) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.float    "student_fee"
+    t.float    "sponsor_fee"
     t.string   "batch_duration"
     t.string   "session_duration"
   end
@@ -70,6 +71,17 @@ ActiveRecord::Schema.define(:version => 20130411074355) do
 
   add_index "grades_students", ["grade_id"], :name => "index_grades_students_on_grade_id"
   add_index "grades_students", ["student_id"], :name => "index_grades_students_on_student_id"
+
+  create_table "grades_subjects", :force => true do |t|
+    t.integer  "marks"
+    t.integer  "grade_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "grades_subjects", ["grade_id"], :name => "index_grades_subjects_on_grade_id"
+  add_index "grades_subjects", ["subject_id"], :name => "index_grades_subjects_on_subject_id"
 
   create_table "marking_pattens", :force => true do |t|
     t.integer  "marks"

@@ -1,18 +1,19 @@
-%h1 Listing subjects
+%h1 Subject list
 
-%table
-  %tr
-    %th Subject Name
-    %th
-    %th
-
-  - @subjects.each do |subject|
+= form_tag destroy_multiple_subjects_path, method: :delete do
+  %table.table
     %tr
-      %td= subject.subject
-      %td= link_to 'Show', subject
-      %td= link_to 'Edit', edit_subject_path(subject)
-      %td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Select subjects
+      %th Subject Name
+      %th
 
+    - @subjects.each do |subject|
+      %tr
+        %td= check_box_tag "subjects[]", subject.id
+        %td= subject.subject
+        %td= link_to 'Edit', edit_subject_path(subject)
+
+  = submit_tag "Delete selected"
 %br
 
 = link_to 'New Subject', new_subject_path
