@@ -1,0 +1,24 @@
+%h1 Subject list
+%h2 assigned subjects
+%table.table
+  %tr
+    %th Subject name
+    %th Mark
+  
+  - @marking_pattens.each do |marking_patten|
+    %tr
+      %td= marking_patten.subject.subject
+      %td= marking_patten.marks
+    
+%h2 Unassigned subject
+= form_tag subjects_list_path do
+  %table.table
+    %tr
+      %th Select subjects
+      %th Subject name
+
+    - @subjects.each do |subject|
+      %tr
+        %td= check_box_tag "subjects[]", subject.id
+        %td= subject.subject
+  = submit_tag "Assign subjects"
