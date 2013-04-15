@@ -8,23 +8,22 @@ devise_for :users, :path_names => {:sign_in => 'login',
 	      } 
 
   resources :trainers
- resources :sponsors do
+    resources :sponsors do
     collection do
       delete 'destroy_multiple'
     end
-  end
-
-   resources :batches do
-    collection do
-     delete 'multipledelete'
-   end
   end
 
    resources :grades do
     collection do
       delete 'multipledelete'
     end
+   resources :batches do
+    collection do
+     delete 'multipledelete'
    end
+  end
+end
 
  resources :subjects do
    collection do

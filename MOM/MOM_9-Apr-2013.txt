@@ -1,0 +1,3 @@
+grade requires batch duration and session duration
+batch must have another days of week option as monday to friday
+During admition, we'll need monthly tracking for fees paid / not paid both by sponsors and students.
