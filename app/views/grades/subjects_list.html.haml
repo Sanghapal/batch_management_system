@@ -1,0 +1,28 @@
+%h1 Subject list
+%h2 assigned subjects
+= simple_form_for update_multiple_path, method: :put do |f|
+  %table.table
+    %tr
+      %th Subject name
+      %th Mark
+  
+    - @marking_pattens.each do |marking_patten|
+      %tr
+        %td= marking_patten.subject.subject
+        %td= marking_patten.marks
+        %td= link_to "Remove", destroy_marking_patten_path(marking_patten), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  = submit_tag "Update marking pattern"    
+
+%h2 Unassigned subject
+= simple_form_for subjects_list_path, method: :post do |f|
+  %table.table
+    %tr
+      %th Select subjects
+      %th Subject name
+
+    - @subjects.each do |subject|
+      %tr
+        %td= check_box_tag "subjects[]", subject.id
+        %td= subject.subject
+
+  = submit_tag "Assign subjects"

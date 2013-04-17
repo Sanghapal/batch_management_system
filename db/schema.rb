@@ -113,6 +113,26 @@ ActiveRecord::Schema.define(:version => 20130411074355) do
     t.integer  "country_id"
   end
 
+  create_table "student_batches", :force => true do |t|
+    t.integer  "Student_id"
+    t.integer  "Batch_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "student_batches", ["Batch_id"], :name => "index_student_batches_on_Batch_id"
+  add_index "student_batches", ["Student_id"], :name => "index_student_batches_on_Student_id"
+
+  create_table "student_grades", :force => true do |t|
+    t.integer  "Student_id"
+    t.integer  "Grade_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "student_grades", ["Grade_id"], :name => "index_student_grades_on_Grade_id"
+  add_index "student_grades", ["Student_id"], :name => "index_student_grades_on_Student_id"
+
   create_table "students", :force => true do |t|
     t.string   "first_name"
     t.string   "middle_name"
