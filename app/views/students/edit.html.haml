@@ -2,6 +2,6 @@
 %h1 Editing student
 = render 'form'
 
-= link_to 'Show', @student
+= link_to '<button type ="button">Show</button>'.html_safe, @student
 \|
-= link_to 'Cancel', students_path
+= link_to '<button type ="button">Cancel</button>'.html_safe, students_path
