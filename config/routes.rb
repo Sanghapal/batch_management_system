@@ -59,7 +59,8 @@ end
   match'/student/:state_id/city' => 'students#city', :via => :get, as: :city
   match'/students/:grade_id/assign_batch_multiple' => 'students#assign_batch_multiple', :via => [:get, :post], as: :assign_batch_multiple
   match'grade/:grade_id/subjects' => 'grades#subjects_list', :via => [:get, :post], as: :subjects_list
-
+  match'/marking_pattens/:marking_patten_id' => 'grades#destroy_marking_patten', :via => :delete, as: :destroy_marking_patten
+  match'/grade/:grade_id/subjects/update_multiple' => 'grades#update_multiple', :via => :put, as: :update_multiple
 
 
 

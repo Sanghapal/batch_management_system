@@ -73,17 +73,29 @@ class GradesController < ApplicationController
   def subjects_list
     @grade = Grade.find(params[:grade_id])
     @marking_pattens = @grade.marking_pattens
-    @subjects = Subject.where("id NOT IN (?)", @grade.subjects)
+    if @grade.subjects.count > 0
+      @subjects = Subject.where("id NOT IN (?)", @grade.subjects)
+    else
+      @subjects = Subject.all
+    end
     if request.post?
-      @marking_pattens = MarkingPatten.new(params[:subjects].map(&:to_i))
-      p "------------"
-      p @marking_pattens.map(&:to_i)
-      @marking_pattens.each do |marking_patten|
-        marking_patten.grade_id = @grade.id
-p marking_patten
-        marking_patten.save
+      params[:subjects].each do |subject_id|
+	@marking_patten = MarkingPatten.new()
+	@marking_patten.grade_id = @grade.id
+	@marking_patten.subject_id = subject_id
+	@marking_patten.save
       end
       redirect_to subjects_list_path
+    end
+  end
+
+  def destroy_marking_patten
+    @marking_patten = MarkingPatten.find(params[:marking_patten_id])
+    @marking_patten.destroy
+
+    respond_to do |format|
+      format.html { redirect_to grades_path }
+      format.json { head :no_content }
     end
   end
 end
