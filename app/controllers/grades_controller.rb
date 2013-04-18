@@ -98,4 +98,17 @@ class GradesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def update_multiple
+    @grade = Grade.find(params[:grade_id])
+    @marking_pattens = @grade.marking_pattens
+    if request.put?
+      p "----------------------"
+      p params
+      @marking_pattens = MarkingPatten.find(params[:marking_patten_ids])
+      @marking_pattens.each do |marking_pattern|
+        marking_pattern.update_attributes
+      end
+    end
+  end
 end
