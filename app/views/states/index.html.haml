@@ -15,7 +15,4 @@
         %td= state.name
         %td= link_to 'Edit', edit_state_path(state)
   = submit_tag "Delete selected"
-
-%br
-
-= link_to 'New State', new_state_path
+  = link_to '<button type="button">New State</button>'.html_safe, new_state_path

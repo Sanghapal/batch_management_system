@@ -33,4 +33,22 @@
         = link_to 'New Trainer', new_trainer_path
         %li
       - elsif params[:controller] == "trainers" && params[:action] == "new"
-        %li new       	
+        %li new
+      - elsif params[:controller] == "cities"
+        %li City
+        = link_to 'New City', new_city_path
+        %li
+      - elsif params[:controller] == "cities" && params[:action] == "new"
+        %li new
+      - elsif params[:controller] == "states"
+        %li State
+        = link_to 'New State', new_state_path
+        %li
+      - elsif params[:controller] == "states" && params[:action] == "new"
+        %li new 
+      - elsif params[:controller] == "subjects"
+        %li Subject
+        = link_to 'New Subject', new_subject_path
+        %li
+      - elsif params[:controller] == "subjects" && params[:action] == "new"
+        %li new    

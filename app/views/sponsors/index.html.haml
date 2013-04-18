@@ -27,6 +27,4 @@
         %td= link_to 'Show Details', sponsor_path(sponsor)
         %td= link_to 'Edit', edit_sponsor_path(sponsor)
   = submit_tag "Delete selected sponsors"
-%br
-
-= link_to 'New Sponsor', new_sponsor_path
+  = link_to '<button type="button">New Sponsor</button>'.html_safe, new_sponsor_path
