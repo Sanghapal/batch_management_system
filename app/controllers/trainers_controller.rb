@@ -24,7 +24,7 @@ class TrainersController < ApplicationController
   # GET /trainers/new
   # GET /trainers/new.json
   def new
-    #@trainer = Trainer.new
+    @trainer = Trainer .new
 
     respond_to do |format|
       format.html # new.html.erb

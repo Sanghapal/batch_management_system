@@ -57,14 +57,16 @@ class SponsorsController < ApplicationController
     end
   end
 
-     def destroy
-    @sopnsors = Batch.find(params[:id])
-    @sopnsors.destroy
-
-    respond_to do |format|
-      format.html { redirect_to sopnsors_url }
-      format.json { head :no_content }
-    end
-  end
-
+     def destroy_multiple
+	 respond_to do |format|
+ if params[:sponsors] !=nil
+	 Sponsor.destroy(params[:sponsors])
+      format.html { redirect_to sponsors_url }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to sponsors_url }
+        format.json { head :no_content }
       end
+    end
+   end
+end
