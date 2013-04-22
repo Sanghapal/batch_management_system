@@ -14,8 +14,4 @@
         %td= batch.title
         %td= link_to 'Show details', grade_batch_path(@grade, batch)
   = submit_tag "Delete multiple batches"
-
-%br
-
-
-= link_to '<button type="button">New Batch</button>'.html_safe, new_grade_batch_path
+  = link_to '<button type="button">New Batch</button>'.html_safe, new_grade_batch_path

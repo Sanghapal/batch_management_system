@@ -32,8 +32,8 @@ end
   def countdate
     batch_duration_munth = nil
     if end_date && starte_date
-      batch_duration_month = @grade_params.batch_duration.to_i
-    errors.add(:end_date, "needs to be #{batch_duration_month} months after start date") if end_date > starte_date+batch_duration_month.months-1.day
+      batch_duration_munth = @grade_params.batch_duration.to_i
+    errors.add(:end_date, "needs to be #{batch_duration_month} months after start date") if end_date > starte_date+batch_duration_munth.months-1.day
 end
 end
 
