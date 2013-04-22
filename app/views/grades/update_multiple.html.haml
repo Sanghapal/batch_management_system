@@ -1,0 +1,15 @@
+%h2 assigned subjects 
+= simple_form_for @marking_pattens, url: update_multiple_grades_path, method: :put do |f|
+  %table.table
+    %tr
+      %th
+      %th Subject name
+      %th Mark
+  
+    - @marking_pattens.each do |marking_patten|
+      %tr
+        %td= hidden_field_tag "marking_pattern_ids[]", [marking_patten.id, marking_patten.marks]
+        %td= marking_patten.subject.subject
+        %td= f.input :marks, :label => " ", :input_html => {:value => marking_patten.marks}
+        %td= link_to "Remove", destroy_marking_patten_path(marking_patten), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  = submit_tag "Update marking pattern"    

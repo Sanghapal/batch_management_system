@@ -21,14 +21,14 @@ class BatchesController < ApplicationController
 
   def new
     @grade = Grade.find(params[:grade_id])
-        @batch = @grade.batches.build
-
+    @batch = @grade.batches.build
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @batch }
     end
   end
+
   def edit
     @batch = Batch.find(params[:id])
   end
@@ -36,6 +36,7 @@ class BatchesController < ApplicationController
   def create
     @grade = Grade.find(params[:grade_id])
     @batch = @grade.batches.build(params[:batch])
+    @batch.access_params(@grade)
     respond_to do |format|
       if @batch.save
         format.html { redirect_to grade_batches_path, notice: 'Batch was successfully created.' }
@@ -49,9 +50,8 @@ class BatchesController < ApplicationController
 
   def update
       @grade = Grade.find(params[:grade_id])
-
-    #@batch = Batch.find(params[:id])
- @batch = @grade.batches.find(params[:id])
+      @batch = @grade.batches.find(params[:id])
+      @batch.access_params(@grade)
     respond_to do |format|
       if @batch.update_attributes(params[:batch])
         format.html { redirect_to grade_batches_path, notice: 'Batch was successfully updated.' }
