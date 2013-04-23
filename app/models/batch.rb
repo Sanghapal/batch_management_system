@@ -30,10 +30,10 @@ end
 end
 
   def countdate
-    batch_duration_munth = nil
+    batch_duration_month = nil
     if end_date && starte_date
-      batch_duration_munth = @grade_params.batch_duration.to_i
-    errors.add(:end_date, "needs to be #{batch_duration_month} months after start date") if end_date > starte_date+batch_duration_munth.months-1.day
+      batch_duration_month = @grade_params.batch_duration.to_i
+    errors.add(:end_date, "needs to be #{batch_duration_month} months after start date") if end_date > starte_date+batch_duration_month.months-1.day
 end
 end
 
@@ -43,16 +43,27 @@ end
     end
  end
 
-  def cal_time
-     
+  def cal_time     
+    h = nil
+    m = nil
+    session_duration_time = nil
     if end_time && from_time
-      errors.add(:end_time, "needs to be 2:30 minutes after start time") if end_time < from_time+2.hours+30.minutes
+      session_duration_time = @grade_params.session_duration.split(":")
+      h = session_duration_time[0].to_i
+      m = session_duration_time[1].to_i
+      errors.add(:end_time, "needs to be #{ @grade_params.session_duration} minutes after start time") if end_time < from_time+h.hours+m.minutes
   end
 end
 
 def counttime
+    h = nil
+    m = nil
+    session_duration_time = nil
     if end_time && from_time
-    errors.add(:end_time, "needs to be 2:30 minutes after start time") if end_time > from_time+2.hours+30.minutes
+      session_duration_time = @grade_params.session_duration.split(":")
+      h = session_duration_time[0].to_i
+      m = session_duration_time[1].to_i
+    errors.add(:end_time, "needs to be #{ @grade_params.session_duration} minutes after start time") if end_time > from_time+h.hours+m.minutes
   end
 end
 end

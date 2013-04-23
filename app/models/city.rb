@@ -1,7 +1,8 @@
 class City < ActiveRecord::Base
   belongs_to :state
-  
- has_many :student
+  has_many :trainers
+
+ has_many :students
   attr_accessible :name, :state_id 
 
   validates :name, :state_id, :presence => true

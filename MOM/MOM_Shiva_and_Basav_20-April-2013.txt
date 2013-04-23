@@ -1,0 +1,14 @@
+Attendies: Basavraj, Shivaji, Sanghapal, Siddhant
+
+Basavraj:
+Trainer fields must also have
+-Qualifacation
+--CV upload (doc|docx required field)
+--Checkbox for details verified or not verified against documents.
+-Address(State drop down, City Drop down, Address Line 1, Address Line 2, Pin Code)
+-Address proof (checkbox required)
+Destroy should not actually delete trainer
+There should be a way whereby an alert is generated when there is not trainer to teach for grade's subject on dashboard.
+Query for batch module:
+there should be list of batches in batch module with filter as ongoing and completed
+ 

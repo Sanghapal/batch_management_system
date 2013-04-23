@@ -1,17 +1,9 @@
-%h1 Listing trainers
 
-%table
-  %tr
-    %th
-    %th
-    %th
 
-  - @trainers.each do |trainer|
-    %tr
-      %td= link_to 'Show', trainer
-      %td= link_to 'Edit', edit_trainer_path(trainer)
-      %td= link_to 'Destroy', trainer, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+%h1 Tainers list
+= form_tag destroy_multiple_trainers_path, method: :delete  do 
+  = render "trainers_list"
 %br
 
-= link_to '<button type="button">Create Trainer</button>'.html_safe, new_trainers_path
+= link_to '<button type ="button">New Trainer</button>'.html_safe, new_trainer_path
+%br

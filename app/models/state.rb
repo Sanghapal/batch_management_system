@@ -3,6 +3,7 @@ class State < ActiveRecord::Base
   has_many :cities
   has_many :students
   belongs_to :country
+  has_many :trainers
 
   validates :name, :country_id, :presence => true
   validates :name, uniqueness: true

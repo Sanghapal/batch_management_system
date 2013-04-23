@@ -5,4 +5,6 @@ class Grade < ActiveRecord::Base
     has_many :subjects, :through => :marking_pattens
    has_many :batches, :dependent => :destroy
   validates :title, :description, :presence => true 
+  validates :session_duration,:format => { :with => /^[0-2][0-3]:[0-5][0-9]$/, :message => "Not a valid time"}, :allow_blank => false
+
 end
