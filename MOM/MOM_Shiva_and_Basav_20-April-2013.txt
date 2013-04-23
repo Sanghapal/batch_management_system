@@ -11,5 +11,4 @@ Destroy should not actually delete trainer
 There should be a way whereby an alert is generated when there is not trainer to teach for grade's subject on dashboard.
 Query for batch module:
 there should be list of batches in batch module with filter as ongoing and completed
-
-
+ 

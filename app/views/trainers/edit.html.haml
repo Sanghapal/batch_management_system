@@ -1,7 +1,7 @@
-%h1 Editing trainer
 
+%h1 Editing trainers
 = render 'form'
 
-= link_to 'Show', @trainer
+= link_to '<button type ="button">Show</button>'.html_safe, @trainer
 \|
-= link_to 'Back', trainers_path
+= link_to '<button type ="button">Cancel</button>'.html_safe, trainers_path
