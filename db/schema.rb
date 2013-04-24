@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423075630) do
+ActiveRecord::Schema.define(:version => 20130424044823) do
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -113,6 +113,26 @@ ActiveRecord::Schema.define(:version => 20130423075630) do
     t.integer  "country_id"
   end
 
+  create_table "student_batches", :force => true do |t|
+    t.integer  "Student_id"
+    t.integer  "Batch_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "student_batches", ["Batch_id"], :name => "index_student_batches_on_Batch_id"
+  add_index "student_batches", ["Student_id"], :name => "index_student_batches_on_Student_id"
+
+  create_table "student_grades", :force => true do |t|
+    t.integer  "Student_id"
+    t.integer  "Grade_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "student_grades", ["Grade_id"], :name => "index_student_grades_on_Grade_id"
+  add_index "student_grades", ["Student_id"], :name => "index_student_grades_on_Student_id"
+
   create_table "students", :force => true do |t|
     t.string   "first_name"
     t.string   "middle_name"
@@ -151,19 +171,28 @@ ActiveRecord::Schema.define(:version => 20130423075630) do
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
-    t.integer  "mobile"
+    t.string   "mobile_number"
     t.string   "email"
-    t.string   "photo"
-    t.text     "qualification"
+    t.boolean  "qualification"
     t.string   "address_line1"
-    t.string   "addreass_line2"
-    t.integer  "zip_code"
-    t.text     "address_proof"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "address_line2"
+    t.integer  "country_id"
     t.integer  "state_id"
     t.integer  "city_id"
+    t.integer  "zip_code"
+    t.boolean  "address_proof"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.boolean  "delete_flag"
   end
+
+  add_index "trainers", ["city_id"], :name => "index_trainers_on_city_id"
+  add_index "trainers", ["country_id"], :name => "index_trainers_on_country_id"
+  add_index "trainers", ["state_id"], :name => "index_trainers_on_state_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -1,9 +1,7 @@
 
 
 %h1 Students list
-= form_tag destroy_multiple_students_path, method: :delete  do 
+= simple_form_for destroy_multiple_students_path, method: :delete  do 
   = render "students_list"
-%br
-
-= link_to '<button type ="button">New Student</button>'.html_safe, new_student_path
-%br
+  = submit_tag "delete selected"
+  = link_to '<button type ="button">New Student</button>'.html_safe, new_student_path

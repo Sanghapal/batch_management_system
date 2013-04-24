@@ -10,9 +10,9 @@
     = f.input :alternate_mobile
     = f.input :address_line1
     = f.input :address_line2
-    = f.input :country_id, :collection => @countries.map{|i| [i.name, i.id]}, label: "Country", :default => @countries.map{|i| [i.name, i.id]}
-    = f.input :state_id, :collection => @states.map{|i| [i.name, i.id]}, label: "State", input_html: { class: 'state' }
-    = f.input :city_id, :collection => @cities.map{|i| [i.name, i.id]}, label: "City"
+    = f.association :country, :collection => Country.all.entries, :prompt => "Select country" 
+    = f.association :state, :collection => State.all.entries, :prompt => "Select state" 
+    = f.association :city, :collection => City.all.entries, :prompt => "Select city" 
     = f.input :zip_code
     = f.input :qualifies_with, collection:['Previous grade clearance', 'Entrance test clearance'], as: :radio_buttons
     = f.input :enrollment_date, :as => :datepicker, :readonly => true

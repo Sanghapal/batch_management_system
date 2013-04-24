@@ -7,7 +7,12 @@ devise_for :users, :path_names => {:sign_in => 'login',
 	      :root_path => 'home#index'  
 	      } 
 
-  resources :trainers
+  resources :trainers do
+    collection do
+      put 'destroy_multiple'
+    end
+  end
+
     resources :sponsors do
     collection do
       delete 'destroy_multiple'
@@ -17,6 +22,7 @@ devise_for :users, :path_names => {:sign_in => 'login',
    resources :grades do
     collection do
       delete 'multipledelete'
+      match'/:grade_id/subjects/update_multiple' => 'grades#update_multiple', :via =>[:get, :put ], as: :update_multiple
     end
    resources :batches do
     collection do
@@ -46,13 +52,12 @@ end
   resources :students do
     collection do
       delete 'destroy_multiple'
-      #put 'banmultiple'
+#      put 'ban_multiple'
        post 'assign_batch_multiple'
     end
   end
   match'/students/:student_id/banmultiple' => 'students#banmultiple', :via => [:get, :put], as: :banmultiple
   match '/index_action' => 'students#index_action', :via => :get
-  #match '/students/index_action' => 'students#index_action', :via => :get, as: :index_action
   match '/grades/:grade_id/batches' => 'batches#index' 
   match'/assign_batch' => 'students#assign_batch', :via => [:get, :post]
   match'/addgrade' => 'students#addgrade', :via => [:get, :post], as: :addgrade
@@ -60,7 +65,7 @@ end
   match'/students/:grade_id/assign_batch_multiple' => 'students#assign_batch_multiple', :via => [:get, :post], as: :assign_batch_multiple
   match'grade/:grade_id/subjects' => 'grades#subjects_list', :via => [:get, :post], as: :subjects_list
   match'/marking_pattens/:marking_patten_id' => 'grades#destroy_marking_patten', :via => :delete, as: :destroy_marking_patten
-  match'/grade/:grade_id/subjects/update_multiple' => 'grades#update_multiple', :via => :put, as: :update_multiple
+#  match'/grade/:grade_id/subjects/update_multiple' => 'grades#update_multiple', :via =>[:get, :put ], as: :update_multiple
 
 
 

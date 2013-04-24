@@ -6,9 +6,7 @@ class Student < ActiveRecord::Base
   has_and_belongs_to_many :batches
 
   attr_accessible :address_line1, :address_line2, :alternate_mobile, :email, :enrollment_date, :first_name, :last_name, :middle_name, :mobile, :qualifies_with, :sponsor, :zip_code, :state_id, :city_id, :country_id, :photo, :ban
-  has_attached_file :photo
-
-  
+  has_attached_file :photo  
 
   validates :first_name, :last_name, :address_line1, :mobile, :enrollment_date, :qualifies_with, :zip_code,	:state_id, :city_id, :presence => true
   validates :first_name,  :last_name, :format => {:with => /\A[a-zA-z]+\z/, :message => "Only letters allowed."}
