@@ -1,5 +1,5 @@
 %p#notice= notice
-%h1 Student details
+%h1 Trainers details
 %br
 = image_tag @trainer.photo.url, :alt => @trainer.first_name, html: {:width => 100, :height => 100}
 
@@ -9,10 +9,12 @@
   %tr
     %th Full name
     %th Mobile number
+    %th Date Of Birth
     %th Email    
   %tr
     %td= @trainer.first_name  +  " "  +  @trainer.last_name
     %td= @trainer.mobile_number
+    %td= @trainer.date_of_birth
     %td= @trainer.email
 
 %h2 Address information
@@ -31,4 +33,4 @@
     %td= @trainer.zip_code
 
 %br
-= link_to 'Back', trainers_path
+= link_to '<button type ="button">Back</button>'.html_safe, trainers_path
