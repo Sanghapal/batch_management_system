@@ -7,7 +7,12 @@ devise_for :users, :path_names => {:sign_in => 'login',
 	      :root_path => 'home#index'  
 	      } 
 
-  resources :trainers
+  resources :trainers do
+    collection do
+      put 'destroy_multiple'
+    end
+  end
+
     resources :sponsors do
     collection do
       delete 'destroy_multiple'

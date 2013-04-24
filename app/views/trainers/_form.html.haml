@@ -1,4 +1,4 @@
-= simple_nested_form_for @trainer, :html => { :multipart => true} do |f|
+= simple_form_for @trainer, :html => { :multipart => true} do |f|
   = f.error_notification
 
   .form-inputs
@@ -6,19 +6,16 @@
     = f.input :middle_name
     = f.input :last_name 
     = f.input :email
-    = f.input :mobile
+    = f.input :mobile_number
     = f.input :address_line1
-    = f.input :addreass_line2
-    = f.association :state, :collection => State.all.entries, :prompt => "Select state"
-    = f.association :city, :collection => City.all.entries, :prompt => "Select city"
+    = f.input :address_line2
+    = f.association :country, :collection => Country.all.entries, :prompt => "Select country" 
+    = f.association :state, :collection => State.all.entries, :prompt => "Select state" 
+    = f.association :city, :collection => City.all.entries, :prompt => "Select city" 
     = f.input :zip_code
+    = f.input :qualification, :as => :boolean
+    = f.input :address_proof, :as => :boolean
     = f.file_field :photo
-    = f.input :qualification, :Qualification => true do 
-      = check_box_tag :qualification
-    = f.input :address_proof, :Address_proof => true do 
-      = check_box_tag :address_proof
+
   .form-actions
     = f.button :submit
-
-
-
