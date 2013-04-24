@@ -15,7 +15,4 @@
         %td= link_to 'Show', trainer
         %td= link_to 'Edit', edit_trainer_path(trainer)
   = submit_tag "Delete selected"
-
-%br
-
-= link_to 'New Trainer', new_trainer_path
+  = link_to '<button type ="button">New Trainer</button>'.html_safe, new_trainer_path
