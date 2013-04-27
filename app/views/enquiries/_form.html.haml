@@ -1,0 +1,21 @@
+= simple_nested_form_for @enquiry, :html => { :multipart => true} do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :first_name
+    = f.input :middle_name
+    = f.input :last_name 
+    = f.input :mobile
+    = f.input :address_line1
+    = f.input :address_line2
+    = f.association :state, :collection => State.all.entries, :prompt => "Select state" 
+    = f.association :city, :collection => City.all.entries, :prompt => "Select city" 
+    = f.input :zip_code
+    = f.input :enquierd_for    
+
+  .form-actions
+    = f.button :submit
+
+
+
+  

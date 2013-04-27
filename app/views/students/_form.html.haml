@@ -5,6 +5,7 @@
     = f.input :first_name
     = f.input :middle_name
     = f.input :last_name 
+    = f.input :date_of_birth, :as => :datepicker, :readonly => true     
     = f.input :email
     = f.input :mobile
     = f.input :alternate_mobile
@@ -16,6 +17,8 @@
     = f.input :zip_code
     = f.input :qualifies_with, collection:['Previous grade clearance', 'Entrance test clearance'], as: :radio_buttons
     = f.input :enrollment_date, :as => :datepicker, :readonly => true
+    = f.input :address_proof, :as => :boolean
+    = f.input :blindness_certificate, :as => :boolean    
     = f.input :sponsor, :as => :boolean
     = f.file_field :photo
 

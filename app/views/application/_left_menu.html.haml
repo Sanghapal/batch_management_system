@@ -51,4 +51,10 @@
         = link_to 'New Subject', new_subject_path
         %li
       - elsif params[:controller] == "subjects" && params[:action] == "new"
-        %li new    
+        %li new  
+      - elsif params[:controller] == "enquiries"
+        %li StudentEnquiry
+        = link_to 'New Enquiry', new_enquiry_path
+        %li
+      - elsif params[:controller] == "enquiries" && params[:action] == "new"
+        %li new

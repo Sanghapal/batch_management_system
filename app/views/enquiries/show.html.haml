@@ -1,0 +1,35 @@
+
+%h1 Student details
+
+%br
+%h2 Personal information
+%table
+  %tr
+    %th Full name
+    %th Middle name
+    %th Mobile number
+    
+  %tr
+    %td= @enquiry.first_name  +  " "  +  @enquiry.last_name
+    %td= @enquiry.middle_name
+    %td= @enquiry.mobile
+        
+%h2 Address information
+%table
+  %tr
+    %th Address line1
+    %th Address line2
+    %th Pin code
+  %tr
+    %td= @enquiry.address_line1
+    %td= @enquiry.address_line2
+    %td= @enquiry.zip_code
+    
+%h2 Other information
+%table
+  %tr
+    %th Enqired For
+  %tr
+    %td= @enquiry.enquierd_for
+%br
+= link_to '<button type="button">Back</button>'.html_safe, enquiries_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424063049) do
+ActiveRecord::Schema.define(:version => 20130426061736) do
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -49,6 +49,24 @@ ActiveRecord::Schema.define(:version => 20130424063049) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "enquiries", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "middle_name"
+    t.integer  "city_id"
+    t.integer  "state_id"
+    t.integer  "mobile"
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.integer  "zip_code"
+    t.text     "enquierd_for"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "enquiries", ["city_id"], :name => "index_enquiries_on_city_id"
+  add_index "enquiries", ["state_id"], :name => "index_enquiries_on_state_id"
 
   create_table "grades", :force => true do |t|
     t.string   "title"
@@ -126,8 +144,8 @@ ActiveRecord::Schema.define(:version => 20130424063049) do
     t.string   "qualifies_with"
     t.date     "enrollment_date"
     t.boolean  "sponsor"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.integer  "country_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -136,6 +154,9 @@ ActiveRecord::Schema.define(:version => 20130424063049) do
     t.boolean  "ban"
     t.string   "mobile"
     t.string   "alternate_mobile"
+    t.date     "date_of_birth"
+    t.boolean  "address_proof"
+    t.boolean  "blindness_certificate"
   end
 
   add_index "students", ["city_id"], :name => "index_students_on_city_id"

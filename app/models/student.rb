@@ -5,7 +5,7 @@ class Student < ActiveRecord::Base
   has_and_belongs_to_many :grades
   has_and_belongs_to_many :batches
 
-  attr_accessible :address_line1, :address_line2, :alternate_mobile, :email, :enrollment_date, :first_name, :last_name, :middle_name, :mobile, :qualifies_with, :sponsor, :zip_code, :state_id, :city_id, :country_id, :photo, :ban
+  attr_accessible :address_line1, :address_line2, :alternate_mobile, :email, :enrollment_date, :first_name, :last_name, :middle_name, :mobile, :qualifies_with, :sponsor, :zip_code, :state_id, :city_id, :country_id, :photo, :ban, :date_of_birth, :address_proof, :blindness_certificate
   has_attached_file :photo  
 
   validates :first_name, :last_name, :address_line1, :mobile, :enrollment_date, :qualifies_with, :zip_code,	:state_id, :city_id, :presence => true

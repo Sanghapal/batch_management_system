@@ -10,6 +10,7 @@
     %th Full name
     %th Middle name
     %th Mobile number
+    %th Date Of Birth
     - if @student.alternate_mobile != nil && @student.alternate_mobile != ""
       %th Alternate mobile
     %th Email
@@ -17,6 +18,7 @@
     %td= @student.first_name  +  " "  +  @student.last_name
     %td= @student.middle_name
     %td= @student.mobile
+    %td= @student.date_of_birth
     - if @student.alternate_mobile != nil && @student.alternate_mobile != ""
       %td= @student.alternate_mobile
     %td= @student.email
@@ -29,12 +31,14 @@
     %th Location
     %th Country
     %th Pin code
+    %th Address Proof
   %tr
     %td= @student.address_line1
     %td= @student.address_line2
     %td= @student.city.name + " " + @student.state.name
     %td= @student.country.name
     %td= @student.zip_code
+    %td= @student.address_proof
 
 %h2 Other information
 %table
@@ -42,12 +46,14 @@
     %th Enrollment date
     %th Qualifies with
     %th Sponsor
+    %th Blindness Certificate
   %tr
     %td= @student.enrollment_date
     %td= @student.qualifies_with
+    %td= @student.blindness_certificate
     - if @student.sponsor 
       %td Yes
     - else
       %td No
 %br
-= link_to 'Back', students_path
+= link_to '<button type="button">Back</button>'.html_safe, students_path

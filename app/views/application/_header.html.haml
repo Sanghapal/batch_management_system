@@ -11,14 +11,15 @@
       - if user_signed_in?
         Logged in as
         %a.navbar-link{:href => "#"}= current_user.email 
-
+        
         = link_to 'Log out', destroy_user_session_path, method: :delete 
         %ul.nav
+
           %li.active
-            = link_to ' Grades', grades_path
+            = link_to 'Grades', grades_path
           %li
           %li
-            = link_to ' Students', students_path
+            = link_to 'StudentInfo', studentinfo_path
           %li
             = link_to  'Cities ', cities_path
           %li
@@ -30,4 +31,6 @@
           %li
             = link_to 'Subject', subjects_path
           %li
+            
+     
 = render 'left_menu'
