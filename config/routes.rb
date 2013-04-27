@@ -7,18 +7,15 @@ devise_for :users, :path_names => {:sign_in => 'login',
 	      :root_path => 'home#index'  
 	      } 
 
-resources :studentinfo 
-match '/studentinfo' => 'studentinfo#insight', via: :get, as: :studentinfo
-
   resources :trainers do
     collection do
-      put 'destroy_multiple'
+      delete 'destroy_multiple'
     end
   end
 
 resources :enquiries do
     collection do
-      put 'destroy_multiple'
+      delete 'destroy_multiple'
     end
   end
 

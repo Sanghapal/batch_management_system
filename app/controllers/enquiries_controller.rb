@@ -73,5 +73,7 @@ p @enquiry.errors
     @states = @country.states
   end
 
+def studentinfo
+end
   
 end
