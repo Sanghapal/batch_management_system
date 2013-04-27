@@ -75,5 +75,4 @@ p @enquiry.errors
 
 def studentinfo
 end
-  
 end

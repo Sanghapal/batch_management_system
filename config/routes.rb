@@ -12,7 +12,7 @@ devise_for :users, :path_names => {:sign_in => 'login',
       delete 'destroy_multiple'
     end
   end
-
+match '/studentinfo' => 'enquiries#studentinfo', via: :get
 resources :enquiries do
     collection do
       delete 'destroy_multiple'
