@@ -46,17 +46,17 @@ p @student.errors
   end
 
   def destroy_multiple
-    respond_to do |format|
-      if params[:students] != nil
-        Student.destroy(params[:students])
-        format.html { redirect_to students_url }
+	 respond_to do |format|
+ if params[:students] !=nil
+	 Student.destroy(params[:students])
+      format.html { redirect_to students_url }
         format.json { head :no_content }
       else
         format.html { redirect_to students_url }
         format.json { head :no_content }
       end
     end
-  end
+   end
 
   def city
     @state = State.find(params[:state_id])    

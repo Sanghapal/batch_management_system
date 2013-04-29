@@ -52,8 +52,9 @@
         %li
       - elsif params[:controller] == "subjects" && params[:action] == "new"
         %li new  
-      - elsif params[:controller] == "enquiries"
+      - elsif params[:controller] == "enquiries" && params[:action] == "studentinfo"
         %li StudentEnquiry
+      - elsif params[:controller] == "enquiries" && params[:action] != "studentinfo"
         = link_to 'New Enquiry', new_enquiry_path
         %li
       - elsif params[:controller] == "enquiries" && params[:action] == "new"
