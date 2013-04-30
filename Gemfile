@@ -56,4 +56,4 @@ gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails', :git
 gem 'devise'
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-
+# gem 'tabulous'

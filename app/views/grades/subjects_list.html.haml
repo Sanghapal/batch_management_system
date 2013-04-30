@@ -25,3 +25,16 @@
         %td= subject.subject
 
   = submit_tag "Assign subjects"
+%h2 Unassigned marks
+= simple_form_for subjects_list_path, method: :post do |f|
+  %table.table
+    %tr
+      %th Select Marks
+      %th Mark
+
+    - @subjects.each do |mark|
+      %tr
+        %td= check_box_tag "mark[]", mark.id
+        %td= mark
+
+  = submit_tag "Assign marks" 
