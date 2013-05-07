@@ -1,7 +1,17 @@
-
-
 %h1 Students Enqiry list
-= simple_form_for destroy_multiple_enquiries_path, method: :delete  do 
-  = render "students_list"
+= form_tag destroy_multiple_enquiries_path, method: :delete  do 
+  %table.table
+    %tr
+      %th Select students
+      %th Full name
+      %th
+
+    - @enquiries.each do |enquiry|
+      %tr
+        %td= check_box_tag "enquiries[]", enquiry.id
+        %td= enquiry.first_name + " " + enquiry.last_name
+        %td= link_to "Show Details", enquiry_path(enquiry)
+        %td= link_to 'Edit', edit_enquiry_path(enquiry)
+
   = submit_tag "delete selected"
   = link_to '<button type ="button">New Enquiry</button>'.html_safe, new_enquiry_path

@@ -44,35 +44,21 @@ p @enquiry.errors
     end
   end
 
-   
-     def destroy_multiple
-	 respond_to do |format|
- if params[:enquiries] !=nil
-	 Enquiry.destroy(params[:enquiries])
-      format.html { redirect_to enquiries_url }
+  def destroy_multiple
+    respond_to do |format|
+      if params[:enquiries] !=nil
+      p "------------"
+        p params[:enquiries]
+	Enquiry.destroy(params[:enquiries])
+        format.html { redirect_to enquiries_path }
         format.json { head :no_content }
       else
-        format.html { redirect_to enquiries_url }
+        format.html { redirect_to enquiries_path }
         format.json { head :no_content }
       end
     end
    end
 
-
-
-  def city
-    @state = State.find(params[:state_id])    
-    @cities = @state.cities
-    render :update do |page|
-      page.replace_html "cities", :partial => "city", :object => @cities
-    end
+  def studentinfo
   end
-
-  def state
-    @country = Country.find(params[:country_id])
-    @states = @country.states
-  end
-
-def studentinfo
-end
 end

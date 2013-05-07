@@ -46,8 +46,6 @@ class TrainersController < ApplicationController
   def destroy_multiple
     @trainers = Trainer.find(params[:trainers])
     @trainers.each do |trainer|
-      p "--------"
-      p trainer
       trainer.delete_flag = true
       trainer.update_attributes(params[:trainer])	
       redirect_to trainers_path

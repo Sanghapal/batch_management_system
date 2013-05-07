@@ -103,11 +103,15 @@ class GradesController < ApplicationController
     @grade = Grade.find(params[:grade_id])
     @marking_pattens = @grade.marking_pattens
     if request.put?
-      p "------------------"
-      p params
-      @marking_pattens = MarkingPatten.find(params[:marking_pattern_ids])
-      @marking_pattens.each do |marking_pattern|
-        marking_pattern.update_attributes(params[:marking_pattern])
+#      params[:marking_patterns_ids].each do |marking_pattern_id|
+	@marking_pattens = MarkingPatten.find(params[:marking_patterns_ids])
+      p "-------------------"
+      p @marking_pattens
+	 params[:marking_patterns].each do |marking_pattern|
+          p "---------------"
+	  p marking_pattern
+	  @marking_patten.update_attributes(params[:marking_pattern])
+        end
       end
       flash[:notice] = "Update marking patterns."
       redirect_to subjects_list_path(@grade.id)
