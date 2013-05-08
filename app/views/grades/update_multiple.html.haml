@@ -10,6 +10,6 @@
       %tr
         %td= hidden_field_tag "marking_patterns_ids[]", marking_patten.id
         %td= marking_patten.subject.subject
-        %td= text_field_tag "marking_patterns[][marks]"
+        %td= text_field_tag "marking_patterns[#{marking_patten.id}]", "#{marking_patten.marks}"
         %td= link_to "Remove", destroy_marking_patten_path(marking_patten), :method => :delete, :data => { :confirm => 'Are you sure?' }
   = submit_tag "Update marking pattern"    
