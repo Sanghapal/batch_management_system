@@ -1,0 +1,16 @@
+
+%h1 Admission details
+
+%h2 information
+%table
+  %tr
+    %th Grade
+    %th Qualifies with
+    %th fees
+  %tr
+    %td= @admission.grade
+    %td= @admission.qualifies_with
+    %td= @admission.fees
+    
+%br
+= link_to '<button type="button">Back</button>'.html_safe, admissions_path
