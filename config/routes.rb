@@ -25,6 +25,14 @@ resources :enquiries do
     end
   end
 
+resources :admissions do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
+
+
    resources :grades do
     collection do
       delete 'multipledelete'

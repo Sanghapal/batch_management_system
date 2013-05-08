@@ -56,4 +56,10 @@
         %li StudentEnquiry
       - elsif params[:controller] == "enquiries" && params[:action] != "studentinfo"
         = link_to 'New Enquiry', new_enquiry_path
-        %li 
+        %li
+      - elsif params[:controller] == "admissions"
+        %li Admission
+        = link_to 'New Admission', new_admission_path
+        %li
+      - elsif params[:controller] == "admissions" && params[:action] == "new"
+        %li new 	
