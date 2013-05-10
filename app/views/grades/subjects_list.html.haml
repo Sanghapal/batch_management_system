@@ -1,5 +1,5 @@
-%h1 Subject list
-%h2 assigned subjects
+%h1 Subjects taught in #{@grade.title}
+%h2 Marking pattern
 %table.table
   %tr
     %th Subject name
@@ -10,18 +10,22 @@
       %td= marking_patten.subject.subject
       %td= marking_patten.marks
       %td= link_to "Remove", destroy_marking_patten_path(marking_patten), :method => :delete, :data => { :confirm => 'Are you sure?' }
-= link_to "Update marking pattern", update_multiple_grades_path(@grade.id)
+- if @marking_pattens.size > 0
+  = link_to  '<button type="button">Update marking pattern</button>'.html_safe, update_multiple_grades_path(@grade.id)
 
-%h2 Unassigned subject
-= simple_form_for subjects_list_path, method: :post do |f|
-  %table.table
-    %tr
-      %th Select subjects
-      %th Subject name
-
-    - @subjects.each do |subject|
+- if @subjects.size > 0 
+  %h2 Introduce new subjects
+  = simple_form_for subjects_list_path, method: :post do |f|
+    %table.table
       %tr
-        %td= check_box_tag "subjects[]", subject.id
-        %td= subject.subject
+        %th Select subjects
+        %th Subject name
 
-  = submit_tag "Assign subjects"
+      - @subjects.each do |subject|
+        %tr
+          %td= check_box_tag "subjects[]", subject.id
+          %td= subject.subject
+
+
+    = submit_tag "Assign subjects"
+ 

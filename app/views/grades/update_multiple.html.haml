@@ -1,4 +1,4 @@
-%h2 assigned subjects 
+%h2 Marking pattern
 = simple_form_for @marking_pattens, url: update_multiple_grades_path, method: :put do |f|
   %table.table
     %tr
@@ -13,3 +13,4 @@
         %td= text_field_tag "marking_patterns[#{marking_patten.id}]", "#{marking_patten.marks}"
         %td= link_to "Remove", destroy_marking_patten_path(marking_patten), :method => :delete, :data => { :confirm => 'Are you sure?' }
   = submit_tag "Update marking pattern"    
+  = link_to '<button type="button">Cancel</button>'.html_safe, subjects_list_path(@grade.id) 
