@@ -11,17 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508045700) do
+ActiveRecord::Schema.define(:version => 20130515105807) do
 
   create_table "admissions", :force => true do |t|
     t.integer  "grade_id"
-    t.text     "fees"
+    t.integer  "student_id"
+    t.string   "student_fee"
+    t.string   "sponsor_fee"
+    t.integer  "sponsor_id"
     t.string   "qualifies_with"
+    t.date     "admission_date"
+    t.boolean  "sponsor_flag"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
 
   add_index "admissions", ["grade_id"], :name => "index_admissions_on_grade_id"
+  add_index "admissions", ["sponsor_id"], :name => "index_admissions_on_sponsor_id"
+  add_index "admissions", ["student_id"], :name => "index_admissions_on_student_id"
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -66,13 +73,13 @@ ActiveRecord::Schema.define(:version => 20130508045700) do
     t.string   "middle_name"
     t.integer  "city_id"
     t.integer  "state_id"
-    t.integer  "mobile"
     t.string   "address_line1"
     t.string   "address_line2"
     t.integer  "zip_code"
     t.text     "enquierd_for"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "mobile"
   end
 
   add_index "enquiries", ["city_id"], :name => "index_enquiries_on_city_id"
@@ -88,17 +95,6 @@ ActiveRecord::Schema.define(:version => 20130508045700) do
     t.string   "batch_duration"
     t.string   "session_duration"
   end
-
-  create_table "grades_students", :force => true do |t|
-    t.integer  "grade_id"
-    t.integer  "student_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.date     "admission_date"
-  end
-
-  add_index "grades_students", ["grade_id"], :name => "index_grades_students_on_grade_id"
-  add_index "grades_students", ["student_id"], :name => "index_grades_students_on_student_id"
 
   create_table "grades_subjects", :force => true do |t|
     t.integer  "marks"
@@ -127,12 +123,22 @@ ActiveRecord::Schema.define(:version => 20130508045700) do
     t.string   "middle_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "phone"
-    t.string   "address"
     t.string   "pan_number"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.integer  "country_id"
+    t.integer  "state_id"
+    t.integer  "city_id"
+    t.integer  "pin_code"
+    t.string   "mobile_number"
+    t.string   "alternate_mobile"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
+
+  add_index "sponsors", ["city_id"], :name => "index_sponsors_on_city_id"
+  add_index "sponsors", ["country_id"], :name => "index_sponsors_on_country_id"
+  add_index "sponsors", ["state_id"], :name => "index_sponsors_on_state_id"
 
   create_table "states", :force => true do |t|
     t.string   "name"
@@ -151,16 +157,6 @@ ActiveRecord::Schema.define(:version => 20130508045700) do
   add_index "student_batches", ["Batch_id"], :name => "index_student_batches_on_Batch_id"
   add_index "student_batches", ["Student_id"], :name => "index_student_batches_on_Student_id"
 
-  create_table "student_grades", :force => true do |t|
-    t.integer  "Student_id"
-    t.integer  "Grade_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "student_grades", ["Grade_id"], :name => "index_student_grades_on_Grade_id"
-  add_index "student_grades", ["Student_id"], :name => "index_student_grades_on_Student_id"
-
   create_table "students", :force => true do |t|
     t.string   "first_name"
     t.string   "middle_name"
@@ -171,9 +167,7 @@ ActiveRecord::Schema.define(:version => 20130508045700) do
     t.string   "address_line1"
     t.string   "address_line2"
     t.integer  "zip_code"
-    t.string   "qualifies_with"
     t.date     "enrollment_date"
-    t.boolean  "sponsor"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.integer  "country_id"

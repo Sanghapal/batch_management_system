@@ -12,6 +12,7 @@
         %td= enquiry.first_name + " " + enquiry.last_name
         %td= link_to "Show Details", enquiry_path(enquiry)
         %td= link_to 'Edit', edit_enquiry_path(enquiry)
+        %td= link_to "Student enrollement", enrollement_path(enquiry)
 
   = submit_tag "delete selected"
   = link_to '<button type ="button">New Enquiry</button>'.html_safe, new_enquiry_path

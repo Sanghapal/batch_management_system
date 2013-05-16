@@ -25,8 +25,9 @@ class SponsorsController < ApplicationController
       format.json { render json: @sponsor }
     end
   end
+
   def edit
-    @sponsor  = Grade.find(params[:id])
+    @sponsor  = Sponsor.find(params[:id])
   end
 
   def create
