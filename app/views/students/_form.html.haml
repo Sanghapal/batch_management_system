@@ -1,4 +1,4 @@
-= simple_nested_form_for @student, :html => { :multipart => true} do |f|
+= simple_form_for @student, :html => { :multipart => true} do |f|
   = f.error_notification
 
   .form-inputs
@@ -15,11 +15,9 @@
     = f.association :state, :collection => State.all.entries, :prompt => "Select state" 
     = f.association :city, :collection => City.all.entries, :prompt => "Select city" 
     = f.input :zip_code
-    = f.input :qualifies_with, collection:['Previous grade clearance', 'Entrance test clearance'], as: :radio_buttons
     = f.input :enrollment_date, :as => :datepicker, :readonly => true
     = f.input :address_proof, :as => :boolean
     = f.input :blindness_certificate, :as => :boolean    
-    = f.input :sponsor, :as => :boolean
     = f.file_field :photo
 
   .form-actions

@@ -25,14 +25,6 @@ resources :enquiries do
     end
   end
 
-resources :admissions do
-    collection do
-      delete 'destroy_multiple'
-    end
-  end
-
-
-
    resources :grades do
     collection do
       delete 'multipledelete'
@@ -70,6 +62,7 @@ end
        post 'assign_batch_multiple'
     end
   end
+
   match'/students/:student_id/banmultiple' => 'students#banmultiple', :via => [:get, :put], as: :banmultiple
   match '/index_action' => 'students#index_action', :via => :get
   match '/grades/:grade_id/batches' => 'batches#index' 
@@ -84,6 +77,7 @@ end
   match'/marking_pattens/:marking_patten_id' => 'grades#destroy_marking_patten', :via => :delete, as: :destroy_marking_patten
   match '/studentinfo' => 'enquiries#studentinfo', via: :get
   match'/grade/:grade_id/subjects/update_multiple' => 'grades#update_multiple', :via =>[:get, :put ], as: :update_multiple
+  match'/enquiry/:enquiry_id/students/new' => 'students#enrollement', :via => :get, as: :enrollement
 
 
 

@@ -1,29 +1,22 @@
-
 %h1 Showing all  sponsors
 = form_tag destroy_multiple_sponsors_path, method: :delete do
-  %table
+  %table.table
     %tr
       %th Select sponsor
-      %th first_name
-      %th middle_name
-      %th last_name
-      %th address
+      %th Full name
+      %th Email
+      %th Mobile number
       %th pan_number
-      %th phone
-      %th email
+      %th 
       %th
-      %th
-      %th
+      
     - @sponsors.each do |sponsor|
       %tr
         %td= check_box_tag "sponsors[]", sponsor.id
-        %td= sponsor.first_name
-        %td= sponsor.middle_name
-        %td= sponsor.last_name
-        %td= sponsor.address
-        %td= sponsor.pan_number
-        %td= sponsor.phone
-        %td= sponsor.email 
+        %td= sponsor.first_name + " " + sponsor.last_name
+        %td= sponsor.email
+        %td= sponsor.mobile_number
+        %td= sponsor.pan_number  
         %td= link_to 'Show Details', sponsor_path(sponsor)
         %td= link_to 'Edit', edit_sponsor_path(sponsor)
   = submit_tag "Delete selected sponsors"

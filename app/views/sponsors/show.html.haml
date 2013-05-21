@@ -1,22 +1,27 @@
-
 %h1 Sponsor Details
-%table
+%h2 Personal information
+%table.table
   %tr
-    %th First_name
-    %th Middle_name
-    %th Last_name
+    %th Full name
+    %th Email
+    %th Mobile number
+    - if @sponsor.alternate_mobile != nil && @sponsor.alternate_mobile != ""
+      %th Alternate mobile
+    %th Pan number
+  %tr
+    %td= @sponsor.first_name + " " + @sponsor.last_name
+    %td= @sponsor.email
+    %td= @sponsor.mobile_number
+    - if @sponsor.alternate_mobile != nil && @sponsor.alternate_mobile != ""
+      %td= @sponsor.alternate_mobile
+    %td= @sponsor.pan_number
+
+%h2 Address information
+%table.table
+  %tr
     %th Address
-    %th Phone
-    %th Pan_no
-    %th email
-    %th
-      %tr
-        %td= @sponsor.first_name
-        %td= @sponsor.middle_name
-        %td= @sponsor.last_name
-        %td= @sponsor.address
-        %td= @sponsor.phone
-        %td= @sponsor.pan_number
-        %td= @sponsor.email	
-        %br
+  %tr
+    %td= @sponsor.address_line1 + " " + @sponsor.address_line2 + " "  + @sponsor.city.name + " " + @sponsor.state.name + " " + @sponsor.pin_code.to_s
+
+%br
 = link_to '<button type ="button">Back</button>'.html_safe, sponsors_path

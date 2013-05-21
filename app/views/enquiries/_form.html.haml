@@ -11,10 +11,11 @@
     = f.association :state, :collection => State.all.entries, :prompt => "Select state" 
     = f.association :city, :collection => City.all.entries, :prompt => "Select city" 
     = f.input :zip_code
-    = f.input :enquierd_for    
+    = f.input :enquierd_for, :as => :text, :input_html => {:cols => 20, :rows => 5}    
 
   .form-actions
     = f.button :submit
+    = link_to '<button type="button">Cancel</button>'.html_safe, enquiries_path
 
 
 

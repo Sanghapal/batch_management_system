@@ -7,9 +7,9 @@
     = f.input :last_name 
     = f.input :email
     = f.input :mobile_number
+    = f.input :date_of_birth, :as => :datepicker, :readonly => true
     = f.input :address_line1
     = f.input :address_line2
-    = f.input :date_of_birth, :as => :datepicker, :readonly => true
     = f.association :country, :collection => Country.all.entries, :prompt => "Select country" 
     = f.association :state, :collection => State.all.entries, :prompt => "Select state" 
     = f.association :city, :collection => City.all.entries, :prompt => "Select city" 

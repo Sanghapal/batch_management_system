@@ -1,5 +1,4 @@
 class StudentsController < ApplicationController
-  before_filter :load_country_state_city, :except => [:destroy, :show]
 
   def index
     @students = Student.all
@@ -14,18 +13,26 @@ class StudentsController < ApplicationController
 #    @student.grades.build
   end
 
+  def enrollement
+    @enquiry = Enquiry.find(params[:enquiry_id])
+    @student = Student.new
+  end
+
   def edit
     @student = Student.find(params[:id])
   end
 
   def create
     @student = Student.new(params[:student])
+    p "----------------"
+    p params
+    @enquiry = Enquiry.find(params[:enquiry_id])
+    @enquiry.destroy
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
       else
-p @student.errors
         format.html { render action: "new" }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end

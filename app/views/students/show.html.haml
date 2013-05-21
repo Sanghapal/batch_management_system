@@ -44,16 +44,9 @@
 %table
   %tr
     %th Enrollment date
-    %th Qualifies with
-    %th Sponsor
     %th Blindness Certificate
   %tr
     %td= @student.enrollment_date
-    %td= @student.qualifies_with
     %td= @student.blindness_certificate
-    - if @student.sponsor 
-      %td Yes
-    - else
-      %td No
 %br
 = link_to '<button type="button">Back</button>'.html_safe, students_path

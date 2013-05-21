@@ -1,0 +1,30 @@
+%h1 New student
+= simple_form_for @student, :html => { :multipart => true} do |f|
+  = f.error_notification
+
+  .form-inputs
+    = hidden_field :enquiry_id, :value => @enquiry.id
+    = f.input :first_name, :input_html => {:value => "#{@enquiry.first_name}" }
+    = f.input :middle_name, :input_html => {:value => "#{@enquiry.middle_name}" }
+    = f.input :last_name, :input_html => {:value => "#{@enquiry.last_name}" } 
+    = f.input :date_of_birth, :as => :datepicker, :readonly => true     
+    = f.input :email
+    = f.input :mobile, :input_html => {:value => "#{@enquiry.mobile}" }
+    = f.input :alternate_mobile
+    = f.input :address_line1, :input_html => {:value => "#{@enquiry.address_line1}" }
+    = f.input :address_line2, :input_html => {:value => "#{@enquiry.address_line2}" }
+    = f.association :country, :collection => Country.all.entries, :prompt => "Select country", :selected => [Country.first.id]
+    = f.association :state, :collection => State.all.entries, :prompt => "Select state", :selected => [@enquiry.state.id]
+    = f.association :city, :collection => City.all.entries, :prompt => "Select city", :selected => [@enquiry.city.id]
+    = f.input :zip_code, :input_html => {:value => "#{@enquiry.zip_code}" }
+    = f.input :enrollment_date, :as => :datepicker, :readonly => true
+    = f.input :address_proof, :as => :boolean
+    = f.input :blindness_certificate, :as => :boolean    
+    = f.file_field :photo
+
+  .form-actions
+    = f.button :submit
+
+
+
+  

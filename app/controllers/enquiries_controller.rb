@@ -1,5 +1,4 @@
 class EnquiriesController < ApplicationController
-before_filter :load_country_state_city, :except => [:destroy, :show]
 
   def index
     @enquiries = Enquiry.all
