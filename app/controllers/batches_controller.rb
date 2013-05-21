@@ -110,5 +110,11 @@ end
 
   end
 	  def attendents
+  if request.post?
+    @batch = Batch.find(params[:batch_id])
+    @session = Session.new(params[:session])
+    @session.save
+    redirect_to grade_batches_path
+    end
     end
 	    end

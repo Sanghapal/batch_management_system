@@ -1,0 +1,12 @@
+= symple_form_for attendents_path(@session), method: :post do |f|
+  = f.error_notification
+
+  .form-inputs
+  %fieldset
+    = f.input :assign_home,  :as => :boolean, :label => "Assign honework"
+
+
+    = f.input :session_date, :label => "Start Date", :as => :datepicker, :readonly => true
+
+  .form-actions
+    = f.button :submit
