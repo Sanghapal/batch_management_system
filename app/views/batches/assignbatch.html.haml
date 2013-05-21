@@ -1,0 +1,27 @@
+%h1 Student list alonging with batch
+%h2 Student name and Batch
+%table.table
+  %tr
+    %th Student name
+    %th
+  
+  - @batch.students.each do |bs|
+    %tr
+      %td= bs.first_name
+
+- if @stdnt.size > 0
+  %h2 Assign batch to student
+  = simple_form_for assignbatch_path, method: :post do |f|
+    %table.table
+      %tr
+        %th Select Student
+        %th Student name
+
+      - @stdnt.each do |student|
+        %tr
+          %td= check_box_tag "students[]", student.id
+          %td= student.first_name
+
+
+    = submit_tag "Assign student"
+ 

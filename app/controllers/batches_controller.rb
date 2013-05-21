@@ -72,5 +72,43 @@ Batch.destroy(params[:batches])
       format.json { head :no_content }
     end
   end
+  end
+def assignbatch
+    #-------------------
+    #Fetch those students in grade who aren't allotted to any of the batches
+    #-------------------
+    #for this, first get students allotted in batches of the grade
+    @grade = Grade.includes(:batches => [:students]).find(params[:grade_id])
+    @students = @grade.students
+    #now build an array with ids of students who are already allotted batches
+    @student_in_batch_ids = []
+    @grade.batches.each do |btch|
+      btch.students.each do |student|
+        @student_in_batch_ids .push(student.id)
+      end
+	 if btch.id == params[:batch_id].to_i
+    @batch = btch
+      end
+    end
+    #finally, get those grade students who are not in any of the batches
+    @stdnt = @grade.students.where("student_id NOT IN (?)", @student_in_batch_ids)
+
+    if request.post?
+    params[:students].each do |student_id|
+    
+    @batches_students  = BatchesStudents.new()
+    @batches_students.batch_id = @batch.id
+ @batches_students.student_id = student_id
+  if @batches_students.save
+# do nothing
+else
+p @batches_students
 end
-end
+      end
+    redirect_to grade_batches_path
+          end
+
+  end
+	  def attendents
+    end
+	    end
