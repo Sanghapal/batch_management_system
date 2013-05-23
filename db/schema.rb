@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20130520115009) do
-=======
-ActiveRecord::Schema.define(:version => 20130515105807) do
->>>>>>> 59b762aebeeeecd745c121e360877fef1daa5b58
+ActiveRecord::Schema.define(:version => 20130523064741) do
 
   create_table "admissions", :force => true do |t|
     t.integer  "grade_id"
@@ -33,16 +29,6 @@ ActiveRecord::Schema.define(:version => 20130515105807) do
   add_index "admissions", ["grade_id"], :name => "index_admissions_on_grade_id"
   add_index "admissions", ["sponsor_id"], :name => "index_admissions_on_sponsor_id"
   add_index "admissions", ["student_id"], :name => "index_admissions_on_student_id"
-
-  create_table "attendents", :force => true do |t|
-    t.integer  "class_session_id"
-    t.integer  "student_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
-  add_index "attendents", ["class_session_id"], :name => "index_attendents_on_class_session_id"
-  add_index "attendents", ["student_id"], :name => "index_attendents_on_student_id"
 
   create_table "batches", :force => true do |t|
     t.string   "title"
@@ -74,16 +60,6 @@ ActiveRecord::Schema.define(:version => 20130515105807) do
   end
 
   add_index "cities", ["state_id"], :name => "index_cities_on_state_id"
-
-  create_table "class_sessions", :force => true do |t|
-    t.boolean  "assign_homework"
-    t.date     "session_date"
-    t.integer  "batch_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  add_index "class_sessions", ["batch_id"], :name => "index_class_sessions_on_batch_id"
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -120,22 +96,7 @@ ActiveRecord::Schema.define(:version => 20130515105807) do
     t.string   "session_duration"
   end
 
-<<<<<<< HEAD
-  create_table "grades_students", :force => true do |t|
-    t.integer  "grade_id"
-    t.integer  "student_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.date     "admission_date"
-  end
-
-  add_index "grades_students", ["grade_id"], :name => "index_grades_students_on_grade_id"
-  add_index "grades_students", ["student_id"], :name => "index_grades_students_on_student_id"
-
   create_table "marking_pattens", :force => true do |t|
-=======
-  create_table "grades_subjects", :force => true do |t|
->>>>>>> 59b762aebeeeecd745c121e360877fef1daa5b58
     t.integer  "marks"
     t.integer  "grade_id"
     t.integer  "subject_id"
@@ -146,35 +107,27 @@ ActiveRecord::Schema.define(:version => 20130515105807) do
   add_index "marking_pattens", ["grade_id"], :name => "index_marking_pattens_on_grade_id"
   add_index "marking_pattens", ["subject_id"], :name => "index_marking_pattens_on_subject_id"
 
-  create_table "session_students", :force => true do |t|
-    t.integer  "session_id"
-    t.integer  "student_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "session_students", ["session_id"], :name => "index_session_students_on_session_id"
-  add_index "session_students", ["student_id"], :name => "index_session_students_on_student_id"
-
-  create_table "sessions", :force => true do |t|
+  create_table "reports", :force => true do |t|
     t.integer  "batch_id"
-    t.boolean  "assign_home"
+    t.boolean  "assign_homework"
     t.date     "session_date"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "sessions", ["batch_id"], :name => "index_sessions_on_batch_id"
+  add_index "reports", ["batch_id"], :name => "index_reports_on_batch_id"
 
-  create_table "sessions_students", :force => true do |t|
+  create_table "reports_students", :force => true do |t|
     t.integer  "student_id"
-    t.integer  "session_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "report_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.boolean  "attendent"
+    t.boolean  "dune_homework"
   end
 
-  add_index "sessions_students", ["session_id"], :name => "index_sessions_students_on_session_id"
-  add_index "sessions_students", ["student_id"], :name => "index_sessions_students_on_student_id"
+  add_index "reports_students", ["report_id"], :name => "index_reports_students_on_report_id"
+  add_index "reports_students", ["student_id"], :name => "index_reports_students_on_student_id"
 
   create_table "sponsors", :force => true do |t|
     t.string   "first_name"
@@ -205,19 +158,6 @@ ActiveRecord::Schema.define(:version => 20130515105807) do
     t.integer  "country_id"
   end
 
-<<<<<<< HEAD
-=======
-  create_table "student_batches", :force => true do |t|
-    t.integer  "Student_id"
-    t.integer  "Batch_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "student_batches", ["Batch_id"], :name => "index_student_batches_on_Batch_id"
-  add_index "student_batches", ["Student_id"], :name => "index_student_batches_on_Student_id"
-
->>>>>>> 59b762aebeeeecd745c121e360877fef1daa5b58
   create_table "students", :force => true do |t|
     t.string   "first_name"
     t.string   "middle_name"

@@ -26,10 +26,11 @@ class StudentsController < ApplicationController
     @student = Student.new(params[:student])
     p "----------------"
     p params
-    @enquiry = Enquiry.find(params[:enquiry_id])
-    @enquiry.destroy
     respond_to do |format|
       if @student.save
+    #@enquiry = Enquiry.find(params[:enquiry_id])
+    #@enquiry.destroy
+
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
       else
@@ -80,7 +81,7 @@ class StudentsController < ApplicationController
 
 def addgrade  
   if request.post?
-    @student = GradesStudents.new(params[:grades_students])
+    @student = Admission .new(params[:admission ])
     @student.admission_date = Date.today
     respond_to do |format|
       if @student.save

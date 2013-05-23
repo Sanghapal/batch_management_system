@@ -83,19 +83,30 @@ def assignbatch
     #now build an array with ids of students who are already allotted batches
     @student_in_batch_ids = []
     @grade.batches.each do |btch|
+p "Looping result is:"
+p btch
       btch.students.each do |student|
         @student_in_batch_ids .push(student.id)
       end
-	 if btch.id == params[:batch_id].to_i
+
+p "Another var is,"
+p @student_in_batch_ids 
+p "therd var is,"
+p @bh
+if btch.id == params[:batch_id].to_i
     @batch = btch
+p "show the varible"
+p @batch.students
       end
     end
+
     #finally, get those grade students who are not in any of the batches
     @stdnt = @grade.students.where("student_id NOT IN (?)", @student_in_batch_ids)
-
+p " the stdnt var is,"
+p @stdnt
     if request.post?
     params[:students].each do |student_id|
-    
+    p params
     @batches_students  = BatchesStudents.new()
     @batches_students.batch_id = @batch.id
  @batches_students.student_id = student_id
@@ -109,12 +120,5 @@ end
           end
 
   end
-	  def attendents
-  if request.post?
-    @batch = Batch.find(params[:batch_id])
-    @session = Session.new(params[:session])
-    @session.save
-    redirect_to grade_batches_path
-    end
-    end
-	    end
+	end
+	

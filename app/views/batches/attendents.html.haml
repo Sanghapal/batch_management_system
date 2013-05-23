@@ -1,12 +1,13 @@
-= symple_form_for attendents_path(@session), method: :post do |f|
+= simple_form_for @session = Session.new, url:  attendents_path([ @session, @batch]), method: :post do |f|
   = f.error_notification
 
   .form-inputs
   %fieldset
+    = f.hidden_field :batch_id
     = f.input :assign_home,  :as => :boolean, :label => "Assign honework"
 
 
     = f.input :session_date, :label => "Start Date", :as => :datepicker, :readonly => true
 
   .form-actions
-    = f.button :submit
+    = f.submit

@@ -14,7 +14,7 @@
         %td= batch.title
         %td= link_to 'Show details', grade_batch_path(@grade, batch)
         %td= link_to 'Assign Batch To Student', assignbatch_path(@grade, batch)
-        %td= link_to 'Create new session ', attendents_path(@grade, batch)
+        %td= link_to 'Create new session ', grade_batch_reports_path(@grade, batch)
 
   = submit_tag "Delete multiple batches"
   = link_to '<button type="button">New Batch</button>'.html_safe, new_grade_batch_path
