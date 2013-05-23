@@ -6,6 +6,7 @@
 /.bundle
 # Ignore the default SQLite database.
 /db/*.sqlite3
+#ignore the schema.rb file from getting committed or pushed
 /db/schema.rb
 #ignore photos that are uploaded while testing
 /public/system/students/photos
