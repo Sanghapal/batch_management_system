@@ -3,7 +3,6 @@ class Student < ActiveRecord::Base
   belongs_to :state
   belongs_to :city
 has_and_belongs_to_many :reports
-#  has_and_belongs_to_many :grades
   has_many :admissions
   has_many :grades, :through => :admissions
   has_and_belongs_to_many :batches
