@@ -96,6 +96,17 @@ ActiveRecord::Schema.define(:version => 20130523064741) do
     t.string   "session_duration"
   end
 
+  create_table "grades_subjects", :force => true do |t|
+    t.integer  "marks"
+    t.integer  "grade_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "grades_subjects", ["grade_id"], :name => "index_grades_subjects_on_grade_id"
+  add_index "grades_subjects", ["subject_id"], :name => "index_grades_subjects_on_subject_id"
+
   create_table "marking_pattens", :force => true do |t|
     t.integer  "marks"
     t.integer  "grade_id"
@@ -157,6 +168,16 @@ ActiveRecord::Schema.define(:version => 20130523064741) do
     t.datetime "updated_at", :null => false
     t.integer  "country_id"
   end
+
+  create_table "student_batches", :force => true do |t|
+    t.integer  "Student_id"
+    t.integer  "Batch_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "student_batches", ["Batch_id"], :name => "index_student_batches_on_Batch_id"
+  add_index "student_batches", ["Student_id"], :name => "index_student_batches_on_Student_id"
 
   create_table "students", :force => true do |t|
     t.string   "first_name"
