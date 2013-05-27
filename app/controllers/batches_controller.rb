@@ -1,18 +1,20 @@
 class BatchesController < ApplicationController
   def index
+
     @grade = Grade.find(params[:grade_id])
-
     @batches = @grade.batches
-
+p "With grade and batch,"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @batches }
     end
   end
 
+
   def show
     @batch = Batch.find(params[:id])
 
+p @batch
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @batch }

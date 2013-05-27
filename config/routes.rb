@@ -25,19 +25,38 @@ resources :enquiries do
     end
   end
 
-   resources :grades do
-    collection do
-      delete 'multipledelete'
+   #resources :grades do
+    #collection do
+      #delete 'multipledelete'
       match'/:grade_id/subjects/update_multiple' => 'grades#update_multiple', :via =>[:get, :put ], as: :update_multiple
-    end
-   resources :batches do
-    collection do
+    #end
+   #resources :batches do
+    #collection do
+     #delete 'multipledelete'
+    #end
+  #end
+#end
+#map.resources :grades, :shallow => true do |grade|
+#delete 'multipledelete'
+  #grade.resources :batches do |batch|
+  #delete 'multipledelete'
+    #batch.resources :reports
+  #end
+#end 
+  resources :grades, :shallow => true do
+collection do
      delete 'multipledelete'
-    end
-    resources :reports
-  end
 end
-
+    resources :batches do
+collection do
+     delete 'multipledelete'
+end
+      resources :reports
+    end
+  end
+    #resources :batches do
+        #resources :reports
+  #end
  resources :subjects do
    collection do
      delete 'destroy_multiple'

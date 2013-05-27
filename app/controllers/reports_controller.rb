@@ -19,8 +19,9 @@ class ReportsController < ApplicationController
   end
 
   def new
-    @report = Report.new
-
+    @batch = Batch.find(params[:batch_id])
+    @report = @batch.reports.build
+    @reports_students = ReportsStudents.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @report }
@@ -32,10 +33,15 @@ class ReportsController < ApplicationController
   end
 
   def create
-    @report = Report.new(params[:report])
-
+    @batch = Batch.find(params[:batch_id])
+    @report = @batch.reports.build(params[:report])
+  p "Report in Params"
+p params[:report]
+@reports_students = ReportsStudents.new(params[:reports_students])
+p "Another Params is,"
+p params[:reports_students]
     respond_to do |format|
-      if @report.save
+      if @report.save && @reports_students.save
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
         format.json { render json: @report, status: :created, location: @report }
       else

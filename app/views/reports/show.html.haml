@@ -1,6 +1,14 @@
-%p#notice= notice
 
-
-= link_to 'Edit', edit_report_path(@report)
-\|
-= link_to 'Back', reports_path
+%h1 Batch Details
+%table
+  %tr
+    %th 
+    %th rade Title
+    %th Start Date
+    %th End Date
+    %th From Time
+    %th End Time
+    %th Days of week
+    %tr
+      %td= @report.assign_homework
+      %td= @report.session_date
