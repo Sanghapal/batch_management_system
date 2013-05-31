@@ -1,0 +1,18 @@
+%h1 Showing all sessions
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @lectures.each do |lecture|
+    %tr
+      %td= lecture.session_date
+      %td= link_to 'Show', lecture
+      %td= link_to 'Edit', edit_lecture_path(lecture)
+      %td= link_to 'Destroy', lecture, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Lecture', new_batch_lecture_path

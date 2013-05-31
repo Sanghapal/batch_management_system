@@ -1,12 +1,12 @@
-class CreateReports < ActiveRecord::Migration
+class CreateLectures < ActiveRecord::Migration
   def change
-    create_table :reports do |t|
+    create_table :lectures do |t|
       t.references :batch
       t.boolean :assign_homework
       t.date :session_date
 
       t.timestamps
     end
-    add_index :reports, :batch_id
+    add_index :lectures, :batch_id
   end
 end

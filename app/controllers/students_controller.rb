@@ -24,12 +24,16 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(params[:student])
+    @enquiry = Enquiry.find(params[:enquiry_id])
+
     p "----------------"
+    @enquiry.destroy
+
     p params
     respond_to do |format|
       if @student.save
-    #@enquiry = Enquiry.find(params[:enquiry_id])
-    #@enquiry.destroy
+p "The an Inquery is"
+p @inquiry
 
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
@@ -39,6 +43,7 @@ class StudentsController < ApplicationController
       end
     end
   end
+
 
   def update
     @student = Student.find(params[:id])

@@ -103,11 +103,18 @@ p @batch.students
     end
 
     #finally, get those grade students who are not in any of the batches
+  if @student_in_batch_ids.empty?
+    @stdnt = @grade.students.all
+  else
+
     @stdnt = @grade.students.where("student_id NOT IN (?)", @student_in_batch_ids)
 p " the stdnt var is,"
 p @stdnt
+end
     if request.post?
     params[:students].each do |student_id|
+p " The ppar is,"
+
     p params
     @batches_students  = BatchesStudents.new()
     @batches_students.batch_id = @batch.id
