@@ -1,0 +1,15 @@
+= simple_form_for addmition_path(@student) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.hidden_field :student_id, :value => @student.id
+    = f.input :grade_id, :collection => Grade.all.entries, :label_method => :title, :value_method => :id, :prompt => "Select Grade", :remote => true
+    = f.input :admission_date, :as => :datepicker, :readonly => true
+    = f.input :qualifies_with
+    = f.input :sponsor_flag, :input_html => {:class => "vishal"}, as: :check_box_tag
+    = f.input :sponsor_id, :collection => Sponsor.all.entries, :label_method => :first_name, :value_method => :id, :prompt => "Select Sponser"
+
+    = f.input :sponsor_fee
+    = f.label :student_fee
+  .form-actions
+    = f.submit"Create Admission"
