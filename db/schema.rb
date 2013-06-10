@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529064242) do
+ActiveRecord::Schema.define(:version => 20130603065206) do
 
   create_table "admissions", :force => true do |t|
     t.integer  "grade_id"
     t.integer  "student_id"
-    t.string   "student_fee"
-    t.string   "sponsor_fee"
+    t.integer  "student_fee"
+    t.integer  "sponsor_fee"
     t.integer  "sponsor_id"
     t.string   "qualifies_with"
     t.date     "admission_date"

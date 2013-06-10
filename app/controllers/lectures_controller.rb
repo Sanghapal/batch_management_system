@@ -36,7 +36,7 @@ class LecturesController < ApplicationController
   def create
     @batch = Batch.find(params[:batch_id])
     @lecture = @batch.lectures.build
-    @lecture.session_date = params[:lecture]["session_date"]
+    @lecture.session_date = params[:lecture]
 p "The Var is,"
 p @lecture
 #@lecture.save
@@ -46,8 +46,9 @@ params["students"].each do |student_id|
 p "Loop is,"
 p student_id
   @presenty = @lecture.presenties.build
-@presenty.attendent = params[:presenty][student_id][:attendent]
 @presenty.done_homework = params[:presenty][student_id][:done_homework]
+  @presenty.attendent = params[:presenty][student_id][:attendent]
+
 @presenty.student_id = student_id 
 end
 

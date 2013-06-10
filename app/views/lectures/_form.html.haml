@@ -18,12 +18,13 @@
       %th
       %th Student Name
       %th{:id=>"attendence"} Student Attendents
-      %th{:id=>"homework"} 
+      %th{:id=>"homework"}  Homework Done
     - if @batch.students.size > 0
+
       - @batch.students.each do |student|
         %tr
           %td= hidden_field_tag "students[]", student.id
           %th{:id=>"s_#{student.id}"}= student.first_name + " " + student.last_name
-          %td{:headers=>"s_#{student.id} attendence"}= check_box_tag "presenty[#{student.id}][attendent ]"
-          %td{:headers=>"s_#{student.id} homework"}= check_box_tag "presenty[#{student.id}][done_homework]"
-    = submit_tag "Create new session"
+          %td.cls{:headers=>"s_#{student.id} attendence"}= check_box_tag "presenty[#{student.id}][attendent]"
+          %td.vishal{:headers=>"s_#{student.id} homework"}= check_box_tag "presenty[#{student.id}][done_homework]"
+  = f.submit "Create new session"

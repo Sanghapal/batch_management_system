@@ -24,16 +24,16 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(params[:student])
-    @enquiry = Enquiry.find(params[:enquiry_id])
+    #@enquiry = Enquiry.find(params[:enquiry_id])
 
     p "----------------"
-    @enquiry.destroy
+    #@enquiry.destroy
 
     p params
     respond_to do |format|
       if @student.save
 p "The an Inquery is"
-p @inquiry
+#p @inquiry
 
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
@@ -133,4 +133,23 @@ def addgrade
       end
     end
   end
-end		
+
+	  def addmition
+    @student = Student.find(params[:student_id])
+  if request.post?
+    @addmition = Admission.new(params[:admission])
+    @addmition.student_id = params[:student_id]
+p "the params is,"
+p params
+  if @addmition.save
+
+    redirect_to students_path
+p "Var report is,"
+p @addmition
+  else
+p "The var is,"
+p @student
+    end
+end
+  end
+  end

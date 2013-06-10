@@ -86,6 +86,8 @@ end
   match'/students/:student_id/banmultiple' => 'students#banmultiple', :via => [:get, :put], as: :banmultiple
   match '/index_action' => 'students#index_action', :via => :get
   match '/grades/:grade_id/batches' => 'batches#index' 
+  match'/students/:student_id/addmition' => 'students#addmition', :via => [:get, :post], as: :addmition
+
   match '/assign_batch' => 'students#assign_batch', :via => [:get, :post]
   match '/addgrade' => 'students#addgrade', :via => [:get, :post], as: :addgrade
   match '/student/:state_id/city' => 'students#city', :via => :get, as: :city
