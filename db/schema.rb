@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523064741) do
+ActiveRecord::Schema.define(:version => 20130529064242) do
 
   create_table "admissions", :force => true do |t|
     t.integer  "grade_id"
@@ -96,6 +96,16 @@ ActiveRecord::Schema.define(:version => 20130523064741) do
     t.string   "session_duration"
   end
 
+  create_table "lectures", :force => true do |t|
+    t.integer  "batch_id"
+    t.boolean  "assign_homework"
+    t.date     "session_date"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "lectures", ["batch_id"], :name => "index_lectures_on_batch_id"
+
   create_table "marking_pattens", :force => true do |t|
     t.integer  "marks"
     t.integer  "grade_id"
@@ -107,27 +117,17 @@ ActiveRecord::Schema.define(:version => 20130523064741) do
   add_index "marking_pattens", ["grade_id"], :name => "index_marking_pattens_on_grade_id"
   add_index "marking_pattens", ["subject_id"], :name => "index_marking_pattens_on_subject_id"
 
-  create_table "reports", :force => true do |t|
-    t.integer  "batch_id"
-    t.boolean  "assign_homework"
-    t.date     "session_date"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  add_index "reports", ["batch_id"], :name => "index_reports_on_batch_id"
-
-  create_table "reports_students", :force => true do |t|
+  create_table "presenties", :force => true do |t|
     t.integer  "student_id"
-    t.integer  "report_id"
+    t.integer  "lecture_id"
+    t.boolean  "attendent"
+    t.boolean  "done_homework"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.boolean  "attendent"
-    t.boolean  "dune_homework"
   end
 
-  add_index "reports_students", ["report_id"], :name => "index_reports_students_on_report_id"
-  add_index "reports_students", ["student_id"], :name => "index_reports_students_on_student_id"
+  add_index "presenties", ["lecture_id"], :name => "index_presenties_on_lecture_id"
+  add_index "presenties", ["student_id"], :name => "index_presenties_on_student_id"
 
   create_table "sponsors", :force => true do |t|
     t.string   "first_name"

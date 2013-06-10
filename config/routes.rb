@@ -51,7 +51,7 @@ end
 collection do
      delete 'multipledelete'
 end
-      resources :reports
+      resources :lectures
     end
   end
     #resources :batches do
