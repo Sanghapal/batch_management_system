@@ -1,0 +1,25 @@
+%h2 Ability Of Triners
+= simple_form_for ability_path do |f|
+  %table.table
+    %tr
+      %th
+      %th Grade Title
+      %th Subjetcs
+      %th
+  
+    - @marking_pattens.each do |marking_patten|
+      %tr
+        %td= marking_patten.grade_id
+      %tr
+        %td= hidden_field_tag "trainer_ids[]", trainer.id
+        %th{:id => "s_#{marking_patten.id}"}= marking_patten.subject.subject
+        %td{:headers => "s_#{marking_patten.id} marks"}= text_field_tag "marking_patterns[#{marking_patten.id}]", "#{marking_patten.marks}"
+        
+      %tr
+        %td.first-column= check_box_tag 'ids[]', marking_patten.id, false, :class => 'table-row-checkbox'
+        %td= marking_patten.mark
+       
+        %td= link_to "View & Edit", marking_patten_path(marking_patten) 
+        %td= link_to "Remove", destroy_marking_patten_path(marking_patten), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  = submit_tag "update"    
+  = link_to '<button type="button">Cancel</button>'.html_safe, ability_path(@trainer.id) 

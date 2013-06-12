@@ -17,8 +17,13 @@
     = f.input :zip_code
     = f.input :enrollment_date, :as => :datepicker, :readonly => true
     = f.input :address_proof, :as => :boolean
-    = f.input :blindness_certificate, :as => :boolean    
+    = f.input :blindness_certificate, :as => :boolean
+    = f.label :photo
     = f.file_field :photo
+    = f.label :address
+    = f.file_field :address
+    = f.label :blindness
+    = f.file_field :blindness
 
   .form-actions
     = f.button :submit

@@ -101,8 +101,9 @@ end
   match'/grade/:grade_id/subjects/update_multiple' => 'grades#update_multiple', :via =>[:get, :put ], as: :update_multiple
   match'/enquiry/:enquiry_id/students/new' => 'students#enrollement', :via => :get, as: :enrollement
 
+# match '/trainer/ability' => 'trainers#ability', :via => :post, as: :ability
 
-
+match '/trainers/:trainer_id/ability' => 'trainers#ability', :via => [:get, :post], as: :ability
   # The priority is based upon order of creation:
   # first created -> highest priority.
 root :to => 'home#index'

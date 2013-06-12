@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603065206) do
+ActiveRecord::Schema.define(:version => 20130610121717) do
 
   create_table "admissions", :force => true do |t|
     t.integer  "grade_id"
@@ -117,6 +117,16 @@ ActiveRecord::Schema.define(:version => 20130603065206) do
   add_index "marking_pattens", ["grade_id"], :name => "index_marking_pattens_on_grade_id"
   add_index "marking_pattens", ["subject_id"], :name => "index_marking_pattens_on_subject_id"
 
+  create_table "marking_pattens_trainers", :force => true do |t|
+    t.integer  "marking_patten_id"
+    t.integer  "trainer_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "marking_pattens_trainers", ["marking_patten_id"], :name => "index_marking_pattens_trainers_on_marking_patten_id"
+  add_index "marking_pattens_trainers", ["trainer_id"], :name => "index_marking_pattens_trainers_on_trainer_id"
+
   create_table "presenties", :force => true do |t|
     t.integer  "student_id"
     t.integer  "lecture_id"
@@ -169,8 +179,8 @@ ActiveRecord::Schema.define(:version => 20130603065206) do
     t.string   "address_line2"
     t.integer  "zip_code"
     t.date     "enrollment_date"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.integer  "country_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -182,6 +192,14 @@ ActiveRecord::Schema.define(:version => 20130603065206) do
     t.date     "date_of_birth"
     t.boolean  "address_proof"
     t.boolean  "blindness_certificate"
+    t.string   "blindness_file_name"
+    t.string   "blindness_content_type"
+    t.integer  "blindness_file_size"
+    t.datetime "blindness_updated_at"
+    t.string   "address_file_name"
+    t.string   "address_content_type"
+    t.integer  "address_file_size"
+    t.datetime "address_updated_at"
   end
 
   add_index "students", ["city_id"], :name => "index_students_on_city_id"
