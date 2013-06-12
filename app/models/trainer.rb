@@ -2,6 +2,8 @@ class Trainer < ActiveRecord::Base
   belongs_to :country
   belongs_to :state
   belongs_to :city
+  
+  has_and_belongs_to_many :marking_pattens
   attr_accessible :address_line1, :address_line2, :address_proof, :email, :first_name, :last_name, :middle_name, :mobile_number, :qualification, :zip_code, :country_id, :state_id, :city_id, :photo, :date_of_birth
   has_attached_file :photo  
 
