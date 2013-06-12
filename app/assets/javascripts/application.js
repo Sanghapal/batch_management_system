@@ -15,7 +15,7 @@
 //= require select2
 //= require twitter/bootstrap
 //= require_tree .
-//= require jquery-ui
+// require jquery-ui
 //= require jquery.ui.datepicker
 //= require jquery.timepicker.js
 

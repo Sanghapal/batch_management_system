@@ -36,10 +36,10 @@ class LecturesController < ApplicationController
   def create
     @batch = Batch.find(params[:batch_id])
     @lecture = @batch.lectures.build
-    @lecture.session_date = params[:lecture]
+    @lecture.session_date = params[:lecture][:session_date]
+    @lecture.assign_homework = params[:lecture][:assign_homework]
 p "The Var is,"
 p @lecture
-#@lecture.save
 p "The params is,"
 p params
 params["students"].each do |student_id|
@@ -47,16 +47,18 @@ p "Loop is,"
 p student_id
   @presenty = @lecture.presenties.build
 @presenty.done_homework = params[:presenty][student_id][:done_homework]
-  @presenty.attendent = params[:presenty][student_id][:attendent]
 
+@presenty.attendent = params[:presenty][student_id][:attendent]
 @presenty.student_id = student_id 
 end
-
     respond_to do |format|
      if  @lecture.save
+p "my var"
         format.html { redirect_to batch_lectures_path, notice: 'Session was successfully created.' }
         format.json { render json: @lecture, status: :created, location: @lecture }
       else
+p "Error in var"
+p @lecture
         format.html { render action: "new" }
         format.json { render json: @lecture.errors, status: :unprocessable_entity }
       end

@@ -11,7 +11,7 @@
       %td= marking_patten.marks
       %td= link_to "Remove", destroy_marking_patten_path(marking_patten), :method => :delete, :data => { :confirm => 'Are you sure?' }
 - if @marking_pattens.size > 0
-  = link_to  '<button type="button">Update marking pattern</button>'.html_safe, update_multiple_grades_path(@grade.id)
+  = link_to  '<button type="button">Update marking pattern</button>'.html_safe, update_multiple_path(@grade.id)
 
 - if @subjects.size > 0 
   %h2 Introduce new subjects
