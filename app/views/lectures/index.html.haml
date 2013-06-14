@@ -7,8 +7,7 @@
     %th
   - @lectures.each do |lecture|
     %tr
-      - lecture.presenties.each do |presenty|
-        %td= presenty.done_homework
+      %td=  lecture.presenties
 
 %br
 

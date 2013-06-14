@@ -42,14 +42,26 @@ p "The Var is,"
 p @lecture
 p "The params is,"
 p params
+p "students var is,"
+p params[:students]
+
 params["students"].each do |student_id|
 p "Loop is,"
 p student_id
+p "Presenty is,"
+p params[:presenty]
+p "wove nice" if params[:presenty].has_key?("vishal")
   @presenty = @lecture.presenties.build
-@presenty.done_homework = params[:presenty][student_id][:done_homework]
+#if params[:presenty][student_id]
 
-@presenty.attendent = params[:presenty][student_id][:attendent]
+# checking Student id of presenty
+if params[:presenty][student_id][:done_homework]
+@presenty.done_homework = params[:presenty][student_id][:done_homework]
 @presenty.student_id = student_id 
+
+#@presenty.attendent = params[:presenty][student_id][:attendent]
+#end
+end
 end
     respond_to do |format|
      if  @lecture.save

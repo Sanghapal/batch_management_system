@@ -60,18 +60,7 @@ class TrainersController < ApplicationController
 
 def ability
    @marking_pattens = MarkingPatten.all  
-   @trainer = Trainer.find(params[:trainer_id])
-    @marking_pattens = @trainer.marking_pattens
-    if request.put?
-      params[:marking_patterns_ids].each do |marking_pattern_id|
-	@marking_pattern = MarkingPatten.find(marking_pattern_id)
-	marks = params[:marking_patterns]
-        @marking_pattern.marks = marks[marking_pattern_id]
-        @marking_pattern.save
-      end
-      flash[:notice] = "Update marking patterns."
-      redirect_to subjects_list_path(@trainer.id)
-    end
+      #redirect_to subjects_list_path(@trainer.id)
   end
 
 
