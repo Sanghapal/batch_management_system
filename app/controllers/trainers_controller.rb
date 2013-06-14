@@ -32,21 +32,17 @@ class TrainersController < ApplicationController
     end
   end
 
-  def update
-   
-    @trainer = Trainer.find(params[:trainer_id])
-      @marking_patten = @trainer.marking_patten.find(params[:id])
-      @marking_patten.access_params(@trainer)
+   def update
+    @trainer = Trainer.find(params[:id])
     respond_to do |format|
-      if @marking_patten.update_attributes(params[:marking_patten])
-        format.html { redirect_to ability_path, notice: 'updated.' }
+      if @trainer.update_attributes(params[:trainer])
+        format.html { redirect_to @trainer, notice: 'Trainer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @marking_patten.errors, status: :unprocessable_entity }
+        format.json { render json: @trainer.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def destroy_multiple
@@ -59,20 +55,19 @@ class TrainersController < ApplicationController
   end
 
 def ability
-   @marking_pattens = MarkingPatten.all  
-   @trainer = Trainer.find(params[:trainer_id])
-    @marking_pattens = @trainer.marking_pattens
-    if request.put?
-      params[:marking_patterns_ids].each do |marking_pattern_id|
-	@marking_pattern = MarkingPatten.find(marking_pattern_id)
-	marks = params[:marking_patterns]
-        @marking_pattern.marks = marks[marking_pattern_id]
-        @marking_pattern.save
-      end
-      flash[:notice] = "Update marking patterns."
-      redirect_to subjects_list_path(@trainer.id)
-    end
+@var =  MarkingPattensTrainers.new(params[:marking_patten_trainer])
+ 
+@var.trainer_id = params[:trainer_id]
+@var.save
+
+@marking_pattens = MarkingPatten.all  
+    if params[:marking_patten]
+  trainer = ability
+  trainer.marking_pattens_ids = params[:marking_patten]
+  trainer.save
+
   end
 
+end
 
 end

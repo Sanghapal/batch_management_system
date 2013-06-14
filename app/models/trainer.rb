@@ -6,6 +6,9 @@ class Trainer < ActiveRecord::Base
   has_and_belongs_to_many :marking_pattens
   attr_accessible :address_line1, :address_line2, :address_proof, :email, :first_name, :last_name, :middle_name, :mobile_number, :qualification, :zip_code, :country_id, :state_id, :city_id, :photo, :date_of_birth
   has_attached_file :photo  
+has_attached_file :qualification  
+has_attached_file :address_proof  
+
 
   validates :first_name, :last_name, :address_line1, :mobile_number, :zip_code, :state_id, :city_id, :email, :presence => true
   validates :first_name,  :last_name, :format => {:with => /\A[a-zA-z]+\z/, :message => "Only letters allowed."}
