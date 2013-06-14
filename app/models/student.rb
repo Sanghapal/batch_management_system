@@ -7,8 +7,11 @@ class Student < ActiveRecord::Base
   has_many :admissions
   has_many :grades, :through => :admissions
   has_and_belongs_to_many :batches
-  attr_accessible :address_line1, :address_line2, :alternate_mobile, :email, :enrollment_date, :first_name, :last_name, :middle_name, :mobile, :qualifies_with, :sponsor, :zip_code, :state_id, :city_id, :country_id, :photo, :ban, :date_of_birth, :address_proof, :blindness_certificate
+  attr_accessible :address_line1, :address_line2, :alternate_mobile, :email, :enrollment_date, :first_name, :last_name, :middle_name, :mobile, :qualifies_with, :sponsor, :zip_code, :state_id, :city_id, :country_id, :photo, :ban, :date_of_birth, :address_proof, :blindness_certificate, :address, :blindness
   has_attached_file :photo  
+  has_attached_file :address  
+  has_attached_file :blindness  
+
 
   
   #attr_accessible :address_line1, :address_line2, :alternate_mobile, :email, :enrollment_date, :first_name, :last_name, :middle_name, :mobile, :zip_code, :state_id, :city_id, :country_id, :photo, :ban, :date_of_birth, :address_proof, :blindness_certificate

@@ -14,5 +14,8 @@
         %td= trainer.first_name + " " + trainer.last_name
         %td= link_to 'Show', trainer
         %td= link_to 'Edit', edit_trainer_path(trainer)
+        %td= link_to 'Ability', ability_path(trainer)
   = submit_tag "Delete selected"
   = link_to '<button type ="button">New Trainer</button>'.html_safe, new_trainer_path
+    
+    

@@ -1,0 +1,2 @@
+class MarkingPattensTrainerController < ApplicationController
+end
