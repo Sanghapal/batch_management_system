@@ -1,0 +1,9 @@
+%h1 Showing trainers grades and there subjects
+%table.table
+  %tr
+    %th Trainers Grade
+    %th Subject
+  - @trainer.marking_pattens.each do |trainer|
+    %tr
+      %td= trainer.grade.title
+      %td= trainer.subject.subject

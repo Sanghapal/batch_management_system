@@ -14,9 +14,13 @@
     = f.association :state, :collection => State.all.entries, :prompt => "Select state" 
     = f.association :city, :collection => City.all.entries, :prompt => "Select city" 
     = f.input :zip_code
-    = f.input :qualification, :as => :boolean
-    = f.input :address_proof, :as => :boolean
+   
+    = f.label:photo
     = f.file_field :photo
+    = f.label :address_proof
+    = f.file_field :address_proof
+    = f.label :qualification
+    = f.file_field :qualification
 
   .form-actions
     = f.button :submit

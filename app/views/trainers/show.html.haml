@@ -2,7 +2,11 @@
 %h1 Trainers details
 %br
 = image_tag @trainer.photo.url, :alt => @trainer.first_name, html: {:width => 100, :height => 100}
+%br
+= image_tag @trainer.address_proof.url, :alt => @trainer.address_proof, html: {:width => 100, :height => 100}
 
+%br
+= image_tag @trainer.qualification.url, :alt => @trainer.qualification, html: {:width => 100, :height => 100}
 %br
 %h2 Personal information
 %table.table

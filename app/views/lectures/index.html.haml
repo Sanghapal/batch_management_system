@@ -2,13 +2,7 @@
 
 %table
   %tr
-    %th
-    %th
-    %th
+    %th Session date
   - @lectures.each do |lecture|
     %tr
-      %td=  lecture.presenties
-
-%br
-
-= link_to 'New Lecture', new_batch_lecture_path
+      %td= lecture.session_date

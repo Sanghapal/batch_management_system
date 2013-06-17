@@ -32,21 +32,17 @@ class TrainersController < ApplicationController
     end
   end
 
-  def update
-   
-    @trainer = Trainer.find(params[:trainer_id])
-      @marking_patten = @trainer.marking_patten.find(params[:id])
-      @marking_patten.access_params(@trainer)
+   def update
+    @trainer = Trainer.find(params[:id])
     respond_to do |format|
-      if @marking_patten.update_attributes(params[:marking_patten])
-        format.html { redirect_to ability_path, notice: 'updated.' }
+      if @trainer.update_attributes(params[:trainer])
+        format.html { redirect_to @trainer, notice: 'Trainer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @marking_patten.errors, status: :unprocessable_entity }
+        format.json { render json: @trainer.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def destroy_multiple
@@ -60,8 +56,26 @@ class TrainersController < ApplicationController
 
 def ability
    @marking_pattens = MarkingPatten.all  
-      #redirect_to subjects_list_path(@trainer.id)
+if request.post?
+params[:grade].each do |g|
+@var =  MarkingPattensTrainers.new()
+@var.trainer_id = params[:trainer_id]
+@var.marking_patten_id = g
+p "params is,"
+p params
+p "the var is,"
+p @var
+if @var.save
+
+end
+end
+redirect_to trainers_path
+
   end
 
+end
 
+def display
+@trainer = Trainer.find(params[:trainer_id])
+end
 end
