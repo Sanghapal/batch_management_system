@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610121717) do
+ActiveRecord::Schema.define(:version => 20130612094153) do
 
   create_table "admissions", :force => true do |t|
     t.integer  "grade_id"
@@ -225,14 +225,22 @@ ActiveRecord::Schema.define(:version => 20130610121717) do
     t.integer  "city_id"
     t.integer  "zip_code"
     t.boolean  "address_proof"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.boolean  "delete_flag"
     t.date     "date_of_birth"
+    t.string   "address_proof_file_name"
+    t.string   "address_proof_content_type"
+    t.integer  "address_proof_file_size"
+    t.datetime "address_proof_updated_at"
+    t.string   "qualification_file_name"
+    t.string   "qualification_content_type"
+    t.integer  "qualification_file_size"
+    t.datetime "qualification_updated_at"
   end
 
   add_index "trainers", ["city_id"], :name => "index_trainers_on_city_id"

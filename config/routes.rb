@@ -104,6 +104,7 @@ end
 # match '/trainer/ability' => 'trainers#ability', :via => :post, as: :ability
 
 match '/trainers/:trainer_id/ability' => 'trainers#ability', :via => [:get, :post], as: :ability
+match 'trainers/:trainer_id/display' => 'trainers#display', :via =>  :get, as: :display
   # The priority is based upon order of creation:
   # first created -> highest priority.
 root :to => 'home#index'

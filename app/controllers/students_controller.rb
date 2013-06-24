@@ -139,6 +139,8 @@ def addgrade
   if request.post?
     @addmition = Admission.new(params[:admission])
     @addmition.student_id = params[:student_id]
+    format.js # for AJAX requests
+
 p "the params is,"
 p params
   if @addmition.save
