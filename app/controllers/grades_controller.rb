@@ -115,9 +115,10 @@ class GradesController < ApplicationController
   end
 
   def fees
+      @grade = Grade.find(params[:grade_id])
+
     respond_to do |format|
 
-    @grade = Grade.find(params[:grade_id])
 format.js {@grade}
 end
 	end

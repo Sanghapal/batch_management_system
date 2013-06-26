@@ -1,12 +1,8 @@
 $(document).ready ->
   $("#comgrade").change ->
     fees()
-$.ajax
-  type: "GET"
-  url: "/grades/" + $("#comgrade").val() + "/fees"
-  dataType: "js"
-  success: (fees) ->
-    alert"Data save"
+fees()->
+  alert("hello world")
 #$('.i').parent().parent().hide()
   #$('.v').parent().parent().hide()
 #chkFlag= $('.boolean')

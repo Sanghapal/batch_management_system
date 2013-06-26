@@ -62,10 +62,8 @@ if params[:presenty].has_key?(student_id)
   if params[:presenty][student_id].has_key?(:attendent)
     @presenty.attendent = params[:presenty][student_id][:attendent]
   end
-if params[:presenty].key = nil?
-redirect_to batch_lectures_path
 end#student_id key check 
-end
+
 end
 
     respond_to do |format|
