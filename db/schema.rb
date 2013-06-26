@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612094153) do
+ActiveRecord::Schema.define(:version => 20130624084327) do
 
   create_table "admissions", :force => true do |t|
     t.integer  "grade_id"
@@ -85,6 +85,15 @@ ActiveRecord::Schema.define(:version => 20130612094153) do
   add_index "enquiries", ["city_id"], :name => "index_enquiries_on_city_id"
   add_index "enquiries", ["state_id"], :name => "index_enquiries_on_state_id"
 
+  create_table "exams", :force => true do |t|
+    t.date     "exam_date"
+    t.integer  "batch_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "exams", ["batch_id"], :name => "index_exams_on_batch_id"
+
   create_table "grades", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -138,6 +147,19 @@ ActiveRecord::Schema.define(:version => 20130612094153) do
 
   add_index "presenties", ["lecture_id"], :name => "index_presenties_on_lecture_id"
   add_index "presenties", ["student_id"], :name => "index_presenties_on_student_id"
+
+  create_table "results", :force => true do |t|
+    t.integer  "marks"
+    t.integer  "exam_id"
+    t.integer  "student_id"
+    t.integer  "marking_patten_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "results", ["exam_id"], :name => "index_results_on_exam_id"
+  add_index "results", ["marking_patten_id"], :name => "index_results_on_marking_patten_id"
+  add_index "results", ["student_id"], :name => "index_results_on_student_id"
 
   create_table "sponsors", :force => true do |t|
     t.string   "first_name"

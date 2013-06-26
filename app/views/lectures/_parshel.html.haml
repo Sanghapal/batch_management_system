@@ -1,0 +1,30 @@
+= simple_form_for ([@batch, @lecture])  do |f|
+  = f.error_notification
+
+  .form-inputs
+    %table.table
+      %tr
+        %th 
+        %th Assign Homework
+        %th Session Date
+      %tr
+        %td= f.hidden_field :batch_id
+        %td= f.input :assign_homework, as: :boolean
+        %td= f.input :session_date, :label => "Session Date", :as => :datepicker, :readonly => true
+
+  %h2 Student Attendents
+  %table.table
+    %tr
+      %th
+      %th Student Name
+      %th{:id=>"attendence"} Student Attendents
+      %th{:id=>"homework"}  Homework Done
+    - if @lecture.presenties.size > 0
+
+      - @lecture.presenties.each do |presenty|
+        %tr
+          %th{:id=>"s_#{presenty.student_id}"}
+
+          %td.cls{:headers=>"s_#{presenty.student_id} attendence"}= check_box_tag "presenty[#{presenty.student_id}][attendent]"
+          %td.vishal{:headers=>"s_#{presenty.student_id} homework"}= check_box_tag "presenty[#{presenty.student_id}][done_homework]"
+  = f.submit "Create new session"

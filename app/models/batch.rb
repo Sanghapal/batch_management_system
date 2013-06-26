@@ -3,6 +3,7 @@ class Batch < ActiveRecord::Base
   belongs_to :grade
   has_and_belongs_to_many :students
 has_many :lectures
+  has_many :exams
   validates :title, :grade, :starte_date, :end_date, :deys_of_week, :from_time, :end_time, :presence => true 
   validate :checkdate
   validate :mytime

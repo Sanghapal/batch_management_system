@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
-  revision: 2c7c527c354d9068ce49346d4fd8389328d32ce6
+  revision: dbbdee23b9ac809ffbd9d73a87d1293c1f8f2e54
   specs:
     twitter-bootstrap-rails (2.2.7)
       actionpack (>= 3.1)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: 1da9e4d6fed33987bdf8fb9a4f21d1ca902b1c7f
+  revision: bc0758cae3316d45c63e3f94a0244150e33957dc
   specs:
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
@@ -68,9 +68,9 @@ GEM
     bootstrap-sass-rails (2.3.2.0)
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
-    bson (1.8.6)
-    bson_ext (1.8.6)
-      bson (~> 1.8.6)
+    bson (1.9.0)
+    bson_ext (1.9.0)
+      bson (~> 1.9.0)
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -111,7 +111,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
-    multi_json (1.7.6)
+    multi_json (1.7.7)
     mysql2 (0.3.11-x86-mingw32)
     nested_form (0.3.2)
     orm_adapter (0.4.0)
@@ -138,7 +138,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.0.4)
+    rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
     rspec-core (2.13.1)
@@ -190,6 +190,7 @@ DEPENDENCIES
   bson_ext
   coffee-rails (~> 3.2.1)
   devise
+  execjs (= 1.4.0)
   haml (>= 3.0.0)
   haml-rails
   jquery-rails
@@ -201,5 +202,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   select2-rails
   simple_form
+  therubyracer
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)

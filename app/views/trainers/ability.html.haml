@@ -1,16 +1,15 @@
 %h2 Ability Of Trainers
 %h3 Trainers Grades and their Subjects
 = simple_form_for ability_path, method: :post do |f|
+  = f.hidden_field :trainer_id
   %table.table
-    = f.hidden_field :trainer_id
     %tr
       %th Grade Title
-      %th Subjetcs
+      %th Subjects
     - @marking_pattens.each do |marking_patten|
-      - marking_patten.grade.marking_pattens.each do |grade|
-        %tr
-          %td= marking_patten.grade.title
-        %tr
-          %td= check_box_tag "grade[]", grade.id
+      %tr
+        %td= marking_patten.grade.title
+        - marking_patten.grade.marking_pattens.each do |grade|
+          = check_box_tag "grade[]", grade.id
           %td= grade.subject.subject
   = submit_tag "create"	

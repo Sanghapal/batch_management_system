@@ -6,3 +6,4 @@
   - @lectures.each do |lecture|
     %tr
       %td= lecture.session_date
+      %td= link_to "Edit this lecture", edit_lecture_path(lecture)

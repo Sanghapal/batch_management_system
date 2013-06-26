@@ -113,4 +113,12 @@ class GradesController < ApplicationController
       redirect_to subjects_list_path(@grade.id)
     end
   end
+
+  def fees
+    respond_to do |format|
+
+    @grade = Grade.find(params[:grade_id])
+format.js {@grade}
+end
+	end
 end

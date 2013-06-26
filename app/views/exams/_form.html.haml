@@ -1,0 +1,22 @@
+= simple_form_for ([@batch, @exam]) do |f|
+  = f.error_notification
+  .form-inputs
+    %table.table
+      %tr
+        %th 
+        %th Exam Date
+      %tr
+        %td= f.hidden_field :batch_id
+        %td= f.input :exam_date, :as => :datepicker, :readonly => true
+  %h2 Marks of students
+  %table.table
+    %tr
+      %th Student's name
+      - @grade.subjects.each do |s|
+        %th= s.subject
+    - @batch.students.each do |student|
+      %tr
+        %td= student.first_name + " " + student.last_name
+        - @grade.marking_pattens.each do |marking_patten|
+          %td= text_field_tag "marks[#{student.id}][#{marking_patten.id}]"
+  = submit_tag "Generate exam report"

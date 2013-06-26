@@ -4,6 +4,8 @@ class Student < ActiveRecord::Base
   belongs_to :city
   has_many :presenties
   has_many :lectures, :through => :presenties
+  has_many :results
+  has_many :exams, :through => :results
   has_many :admissions
   has_many :grades, :through => :admissions
   has_and_belongs_to_many :batches
