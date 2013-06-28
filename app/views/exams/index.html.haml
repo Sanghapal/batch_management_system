@@ -1,0 +1,16 @@
+%h1 Listing exams
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @exams.each do |exam|
+    %tr
+      %td= exam.exam_date
+      %td= link_to 'Destroy', exam, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Generate Exam Report', new_batch_exam_path

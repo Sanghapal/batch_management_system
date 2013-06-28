@@ -31,6 +31,7 @@ class LecturesController < ApplicationController
 
   def edit
     @lecture = Lecture.find(params[:id])
+    @presenty = @lecture.presenties
   end
 
   def create
@@ -38,31 +39,36 @@ class LecturesController < ApplicationController
     @lecture = @batch.lectures.build
     @lecture.session_date = params[:lecture][:session_date]
     @lecture.assign_homework = params[:lecture][:assign_homework]
+    @lecture.remarks = params[:lecture][:remarks]
 p "The Var is,"
 p @lecture
 p "The params is,"
 p params
 p "students var is,"
 p params[:students]
-
+    if params[:presenty] == nil
+render action: "new" 
+else
 params["students"].each do |student_id|
 p "Loop is,"
 p student_id
 p "Presenty is,"
 p params[:presenty]
-p "wove nice" if params[:presenty].has_key?("vishal")
+p "wove nice" if params[:presenty].has_key?(student_id)
   @presenty = @lecture.presenties.build
-#if params[:presenty][student_id]
+if params[:presenty].has_key?(student_id)
+@presenty.student_id = student_id
 
-# checking Student id of presenty
-if params[:presenty][student_id][:done_homework]
-@presenty.done_homework = params[:presenty][student_id][:done_homework]
-@presenty.student_id = student_id 
+  if params[:presenty][student_id].has_key?(:done_homework)
+    @presenty.done_homework = params[:presenty][student_id][:done_homework]
+  end
+  if params[:presenty][student_id].has_key?(:attendent)
+    @presenty.attendent = params[:presenty][student_id][:attendent]
+  end
+end#student_id key check 
 
-#@presenty.attendent = params[:presenty][student_id][:attendent]
-#end
 end
-end
+
     respond_to do |format|
      if  @lecture.save
 p "my var"
@@ -76,10 +82,19 @@ p @lecture
       end
     end
   end
+end
 
   def update
     @lecture = Lecture.find(params[:id])
-
+@lecture.presenties
+p "the params is,"
+p params
+     @lecture.presenties.each do |presenty|
+p "The presenty is,"
+p presenty
+p "second params is,"
+   p params[:presenty]
+end
     respond_to do |format|
       if @lecture.update_attributes(params[:lecture])
         format.html { redirect_to @lecture, notice: 'Lecture was successfully updated.' }
@@ -89,7 +104,9 @@ p @lecture
         format.json { render json: @lecture.errors, status: :unprocessable_entity }
       end
     end
-  end
+end
+
+  
 
   def destroy
     @lecture = Lecture.find(params[:id])

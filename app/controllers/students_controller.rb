@@ -84,21 +84,21 @@ p "The an Inquery is"
     @states = @country.states
   end
 
-def addgrade  
-  if request.post?
-    @student = Admission .new(params[:admission ])
-    @student.admission_date = Date.today
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to students_path, notice: 'assign grade successfully..' }
-        format.json { render json: students_path, status: :created, location: @student }
-      else
-        format.html { render action: "addgrade" }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
-    end
-  end
- end
+#def addgrade  
+  #if request.post?
+    #@student = Admission .new(params[:admission ])
+    #@student.admission_date = Date.today
+    #respond_to do |format|
+      #if @student.save
+        #format.html { redirect_to students_path, notice: 'assign grade successfully..' }
+ #       format.json { render json: students_path, status: :created, location: @student }
+  #    else
+   #     format.html { render action: "addgrade" }
+     #   format.json { render json: @student.errors, status: :unprocessable_entity }
+     # end
+   # end
+  #end
+# end
 
 
   def banmultiple
@@ -135,23 +135,31 @@ def addgrade
   end
 
 	  def addmition
-    @student = Student.find(params[:student_id])
+    @student =  Student.find(params[:student_id])
+    @admission = Admission.new
+
   if request.post?
     @addmition = Admission.new(params[:admission])
-    @addmition.student_id = params[:student_id]
-    format.js # for AJAX requests
-
+    @addmition.student_id = @student.id
 p "the params is,"
 p params
+
+    #@addmition.student_id = params[:student_id]
+   # @addmition.admission_date = params[:admission_date]
+    #@addmition.student_fee = params[:student_fee]
+
+    #@addmition.sponsor_id = params[:sponsor_id]
+    #@addmition.grade_id = params[:grade_id]
+    #@addmition.sponsor_fee = params[:sponsor_fee]
   if @addmition.save
 
     redirect_to students_path
-p "Var report is,"
-p @addmition
   else
-p "The var is,"
-p @student
+# do nothing
     end
 end
   end
-  end
+    def document
+        @student = Student.find(params[:student_id])
+	  end
+	  end

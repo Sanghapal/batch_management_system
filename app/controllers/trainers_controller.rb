@@ -46,13 +46,12 @@ class TrainersController < ApplicationController
   end
 
   def destroy_multiple
-    @trainers = Trainer.find(params[:trainers])
-    @trainers.each do |trainer|
-      trainer.delete_flag = true
-      trainer.update_attributes(params[:trainer])	
+    if params[:trainers] != nil
+     Trainer.destroy(params[:trainers])
       redirect_to trainers_path
     end  
   end
+
 
 def ability
    @marking_pattens = MarkingPatten.all  

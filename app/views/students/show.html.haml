@@ -3,10 +3,15 @@
 %br
 = image_tag @student.photo.url, :alt => @student.first_name, html: {:width => 100, :height => 100}
 %br
-= image_tag @student.address.url, :alt => @student.address, html: {:width => 100, :height => 100}
-
+- if @student.address == nil?
+  = image_tag @student.address.url, :alt => @student.address, html: {:width => 100, :height => 100}
+- else
+  %b You haven't uploaded your address related documents
 %br
-= image_tag @student.blindness.url, :alt => @student.blindness, html: {:width => 100, :height => 100}
+- if @student.blindness == nil?
+  = image_tag @student.blindness.url, :alt => @student.blindness, html: {:width => 100, :height => 100}
+- else
+  %b You haven't uploaded your blindness
 
 %br
 %h2 Personal information

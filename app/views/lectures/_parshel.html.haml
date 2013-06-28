@@ -13,7 +13,6 @@
         %td= f.input :assign_homework, as: :boolean
         %td= f.input :session_date, :label => "Session Date", :as => :datepicker, :readonly => true
         %td= f.input :remarks, :as => :text
-
   %h2 Student Attendents
   %table.table
     %tr
@@ -21,12 +20,12 @@
       %th Student Name
       %th{:id=>"attendence"} Student Attendents
       %th{:id=>"homework"}  Homework Done
-    - if @batch.students.size > 0
+    - if @lecture.presenties.size > 0
 
-      - @batch.students.each do |student|
+      - @lecture.presenties.each do |presenty|
         %tr
-          %td= hidden_field_tag "students[]", student.id
-          %th{:id=>"s_#{student.id}"}= student.first_name + " " + student.last_name
-          %td.cls{:headers=>"s_#{student.id} attendence"}= check_box_tag "presenty[#{student.id}][attendent]"
-          %td.vishal{:headers=>"s_#{student.id} homework"}= check_box_tag "presenty[#{student.id}][done_homework]"
+          %th{:id=>"s_#{presenty.student_id}"}
+
+          %td.cls{:headers=>"s_#{presenty.student_id} attendence"}= check_box_tag "presenty[#{presenty.student_id}][attendent]"
+          %td.vishal{:headers=>"s_#{presenty.student_id} homework"}= check_box_tag "presenty[#{presenty.student_id}][done_homework]"
   = f.submit "Create new session"
