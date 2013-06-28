@@ -96,8 +96,7 @@ end
   match '/students/:grade_id/assign_batch_multiple' => 'students#assign_batch_multiple', :via => [:get, :post], as: :assign_batch_multiple
   match '/grade/:grade_id/subjects' => 'grades#subjects_list', :via => [:get, :post], as: :subjects_list
   match '/grade/:grade_id/batch/:batch_id/students' => 'batches#assignbatch', :via => [:get, :post], as: :assignbatch
-  #match '/batch/:batch_id/lectures/:lecture_id/edit_lecture' => 'lectures#edit_lecture', :via => [:get, :put], as: :edit_lecture
-
+    match '/students/:student_id/document' => 'students#document', via: :get
   match '/grades/batch/:batch_id/attendents' => 'batches#attendents', :via => [:get, :post], as: :attendents
 
   match'/marking_pattens/:marking_patten_id' => 'grades#destroy_marking_patten', :via => :delete, as: :destroy_marking_patten

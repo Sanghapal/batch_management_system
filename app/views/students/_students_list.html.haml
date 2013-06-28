@@ -11,3 +11,4 @@
       %td= link_to "Show Details", student_path(student)
       %td= link_to "Fill admission form", addmition_path(student)
       %td= link_to 'Edit', edit_student_path(student)
+      %td= link_to "Ban this student", banmultiple_path(student), method: :put

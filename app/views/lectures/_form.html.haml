@@ -7,10 +7,12 @@
         %th 
         %th Assign Homework
         %th Session Date
+        %th Add Remarks
       %tr
         %td= f.hidden_field :batch_id
         %td= f.input :assign_homework, as: :boolean
         %td= f.input :session_date, :label => "Session Date", :as => :datepicker, :readonly => true
+        %td= f.input :remarks, :as => :text
 
   %h2 Student Attendents
   %table.table

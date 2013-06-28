@@ -1,5 +1,4 @@
-= simple_form_for addmition_path do |f|
-  = f.hidden_field :student_id
+= simple_form_for @admission, :url => addmition_path(@student), method: :post do |f|
   = f.input :admission_date, :as => :datepicker, :readonly => true
   = f.input :grade_id, :collection => Grade.all.entries, :value_method => :id, :label_method =>  :title, :input_html => {:id => "comgrade"}
   = f.input :student_fee, :label => "Student has paid Rs.", :readonly => true, :input_html => {:id => "text_student_fees"}
@@ -7,4 +6,5 @@
   #sponsorship_details{:style => "display:none;"}
     = f.input :sponsor_id, :collection => Sponsor.all.entries, :value_method => :id, :label_method =>  :first_name
     = f.input :sponsor_fee, :label => "Sponsor has paid Rs.", :readonly => true, :input_html => {:id => "text_sponsor_fees"}
+  = f.hidden_field :student_id
   = f.submit"submit"

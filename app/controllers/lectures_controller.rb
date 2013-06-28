@@ -31,7 +31,7 @@ class LecturesController < ApplicationController
 
   def edit
     @lecture = Lecture.find(params[:id])
-    @presenty = @lecture.presenties.build
+    @presenty = @lecture.presenties
   end
 
   def create
@@ -39,13 +39,16 @@ class LecturesController < ApplicationController
     @lecture = @batch.lectures.build
     @lecture.session_date = params[:lecture][:session_date]
     @lecture.assign_homework = params[:lecture][:assign_homework]
+    @lecture.remarks = params[:lecture][:remarks]
 p "The Var is,"
 p @lecture
 p "The params is,"
 p params
 p "students var is,"
 p params[:students]
-
+    if params[:presenty] == nil
+render action: "new" 
+else
 params["students"].each do |student_id|
 p "Loop is,"
 p student_id
@@ -79,6 +82,7 @@ p @lecture
       end
     end
   end
+end
 
   def update
     @lecture = Lecture.find(params[:id])
