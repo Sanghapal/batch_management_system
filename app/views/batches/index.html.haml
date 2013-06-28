@@ -12,7 +12,6 @@
       %tr
         %td= check_box_tag "batches[]", batch.id
         %td= batch.title
-        %td= link_to 'Show details', @batch
         %td= link_to 'Assign Batch To Student', assignbatch_path(@grade, batch)
       - if batch.students.size != 0
         %td= link_to "Create new session", new_batch_lecture_path(batch)
