@@ -1,13 +1,13 @@
 GIT
   remote: git://github.com/Nerian/bootstrap-datepicker-rails.git
-  revision: 3c6ec54c5f4b36a4bea2f68f763946bcb5a0142e
+  revision: 2780818f4f3fb709e43a05b8c5313a3a82f5fac6
   specs:
-    bootstrap-datepicker-rails (1.1.0.1)
+    bootstrap-datepicker-rails (1.1.1.1)
       railties (>= 3.0)
 
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
-  revision: dbbdee23b9ac809ffbd9d73a87d1293c1f8f2e54
+  revision: 9a0a31096ecee572638132d5ed94bc5500f74330
   specs:
     twitter-bootstrap-rails (2.2.7)
       actionpack (>= 3.1)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: bc0758cae3316d45c63e3f94a0244150e33957dc
+  revision: f2b273a62b4ef4430de2ce420df54bd269609561
   specs:
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
@@ -82,7 +82,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.2)
+    coffee-script-source (1.6.3)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -102,7 +102,7 @@ GEM
     hike (1.2.3)
     i18n (0.6.4)
     journey (1.0.4)
-    jquery-rails (3.0.1)
+    jquery-rails (3.0.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
@@ -141,23 +141,23 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    rspec-core (2.13.1)
-    rspec-expectations (2.13.0)
+    rspec-core (2.14.1)
+    rspec-expectations (2.14.0)
       diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.13.1)
-    rspec-rails (2.13.2)
+    rspec-mocks (2.14.1)
+    rspec-rails (2.14.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec-core (~> 2.13.0)
-      rspec-expectations (~> 2.13.0)
-      rspec-mocks (~> 2.13.0)
+      rspec-core (~> 2.14.0)
+      rspec-expectations (~> 2.14.0)
+      rspec-mocks (~> 2.14.0)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    select2-rails (3.4.2)
+    select2-rails (3.4.3)
       sass-rails
       thor (~> 0.14)
     simple_form (2.1.0)
@@ -184,6 +184,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt-ruby (= 3.0.1)
   bootstrap-datepicker-rails!
   bootstrap-sass-rails
   bootstrap-timepicker-rails!
